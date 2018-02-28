@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="HTTP,HTTP协议,协议学习," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="今天读了《HTTP权威指南》中的URL与资源这一节，做了以下的总结。 URL与URIURL就是因特网资源的标准化名称。URL指向一条电子信息片段，告诉你它们位于何处，以及如何与之进行交互。 URI是一类更通用的资源标识符，URL实际上是它的一个子集。URI 是一个通用的概念，由两个主要的子集 URL 和 URN 构成，URL 是通过描述资源的位置来标识资源的，而 URN则是通过名字来识别资源的，与">
+<meta name="keywords" content="HTTP,HTTP协议,协议学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Http协议学习基础:URL与资源">
+<meta property="og:url" content="http://yoursite.com/2017/01/02/Http协议学习URL与URI/index.html">
+<meta property="og:site_name" content="YangKangJian Blog">
+<meta property="og:description" content="今天读了《HTTP权威指南》中的URL与资源这一节，做了以下的总结。 URL与URIURL就是因特网资源的标准化名称。URL指向一条电子信息片段，告诉你它们位于何处，以及如何与之进行交互。 URI是一类更通用的资源标识符，URL实际上是它的一个子集。URI 是一个通用的概念，由两个主要的子集 URL 和 URN 构成，URL 是通过描述资源的位置来标识资源的，而 URN则是通过名字来识别资源的，与">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/URL.png">
+<meta property="og:updated_time" content="2018-02-28T09:00:12.357Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Http协议学习基础:URL与资源">
+<meta name="twitter:description" content="今天读了《HTTP权威指南》中的URL与资源这一节，做了以下的总结。 URL与URIURL就是因特网资源的标准化名称。URL指向一条电子信息片段，告诉你它们位于何处，以及如何与之进行交互。 URI是一类更通用的资源标识符，URL实际上是它的一个子集。URI 是一个通用的概念，由两个主要的子集 URL 和 URN 构成，URL 是通过描述资源的位置来标识资源的，而 URN则是通过名字来识别资源的，与">
+<meta name="twitter:image" content="http://yoursite.com/images/URL.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/02/Http协议学习URL与URI/"/>
+
+
+
+
+
+  <title>Http协议学习基础:URL与资源 | YangKangJian Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YangKangJian Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/02/Http协议学习URL与URI/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YangKangJian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YangKangJian Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Http协议学习基础:URL与资源</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-02T14:28:11+08:00">
+                2017-01-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>今天读了《HTTP权威指南》中的URL与资源这一节，做了以下的总结。</p>
+<h3 id="URL与URI"><a href="#URL与URI" class="headerlink" title="URL与URI"></a>URL与URI</h3><p>URL就是因特网资源的标准化名称。URL指向一条电子信息片段，告诉你它们位于何处，以及如何与之进行交互。</p>
+<p>URI是一类更通用的资源标识符，URL实际上是它的一个子集。URI 是一个通用的<br>概念，由两个主要的子集 URL 和 URN 构成，URL 是通过描述资源的位置来标识资<br>源的，而 URN则是通过名字来识别资源的，与它们当前所处位置无关。</p>
+<h3 id="URL的组成"><a href="#URL的组成" class="headerlink" title="URL的组成"></a>URL的组成</h3><p>1、URL分三部分组成，例如：</p>
+<pre><code>https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png
+</code></pre><ul>
+<li><p>URL 的第一部分（http）是 URL 方案（scheme）。方案可以告知 Web 客户端怎<br>样访问资源。在这个例子中，URL 说明要使用 HTTP 协议。</p>
+</li>
+<li><p>URL 的第二部分（<a href="http://www.google.com）指的是服务器的位置。这部分告知" target="_blank" rel="noopener">www.google.com）指的是服务器的位置。这部分告知</a><br>Web 客户端资源位于何处。</p>
+</li>
+<li><p>URL 的第三部分（/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png）是资源路径。路径说明了请求的是<br>服务器上哪个特定的本地资源。</p>
+</li>
+</ul>
+<p>2、URL提供了一种统一的资源命名方式。大多数 URL 都有同样的：“方案 :// 服务器<br>位置 / 路径”结构。</p>
+<p>3、URL 可以通过 HTTP 之外的其他协议来访问资源。它们可以指向因特网上的任意资<br>源：或者个人的 E-mail 账户：</p>
+<p>mailto:<a href="mailto:president@whitehouse.gov" target="_blank" rel="noopener">president@whitehouse.gov</a></p>
+<p>或者通过其他协议（比如 FTP 协议）访问的各种文件：</p>
+<p><a href="ftp://ftp.lots-o-books.com/pub/complete-price-list.xls" target="_blank" rel="noopener">ftp://ftp.lots-o-books.com/pub/complete-price-list.xls</a></p>
+<p>或者从流视频服务器上下载电影：</p>
+<p>rtsp://<a href="http://www.joes-hardware.com:554/interview/cto_video" target="_blank" rel="noopener">www.joes-hardware.com:554/interview/cto_video</a></p>
+<h2 id="URL语法"><a href="#URL语法" class="headerlink" title="URL语法"></a>URL语法</h2><p>URL 提供了一种定位因特网上任意资源的手段，但这些资源是可以通过各种不同的<br>方案（比如 HTTP、FTP、SMTP）来访问的，因此 URL 语法会随方案的不同而有<br>所不同。</p>
+<p>大多数 URL 方案的 URL 语法都建立在这个由 9 部分构成的通用格式上：</p>
+<pre><code>&lt;scheme&gt;://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;:&lt;port&gt;/&lt;path&gt;;&lt;params&gt;?&lt;query&gt;#&lt;frag&gt;
+</code></pre><p>几乎没有哪个 URL 中包含了所有这些组件。URL 最重要的 3 个部分是方案（scheme）、<br>主机（host）和路径（path）。</p>
+<p><img src="/images/URL.png" alt=""></p>
+<p><strong>1、方案-使用什么协议</strong></p>
+<p>方案实际上是规定如何访问指定资源的主要标识符，它会告诉负责解析 URL 的应用<br>程序应该使用什么协议。如：</p>
+<p>HTTP:</p>
+<pre><code>http://www.baidu.com
+</code></pre><p>FTP:<br>    <a href="ftp://ftp.lots-o-books.com/pub/complete-price-list.xls" target="_blank" rel="noopener">ftp://ftp.lots-o-books.com/pub/complete-price-list.xls</a></p>
+<p>除了常用协议外，还有些定制的协议的URL也是一样的，如JDBC的URL:</p>
+<pre><code>jdbc:mysql://localtion/3306/mydb?useSSL=false
+</code></pre><p><strong>2、主机与端口</strong></p>
+<p>要想在因特网上找到资源，应用程序要知道是哪台机器装载了资源，以及在那台机<br>器的什么地方可以找到能对目标资源进行访问的服务器。URL的主机和端口组件提<br>供了这两组信息。</p>
+<pre><code>http://www.joes-hardware.com:80/index.html
+http://161.58.228.45:80/index.html
+</code></pre><p>可以用主机名或者IP地址来表示主机，通用的协议都有默认的端口，如HTTP是80商品，FTP是21端口，浏览器发起HTTP请求，不填写端口用默认的端口。</p>
+<p><strong>3、用户名和密码</strong></p>
+<p>很多服务器都要求输入用户名和密码才会允许用户访问数据。FTP 服务器就是这样一个常见的实例。如：</p>
+<pre><code>1、ftp://ftp.prep.ai.mit.edu/pub/gnu
+2、ftp://anonymous@ftp.prep.ai.mit.edu/pub/gnu
+3、ftp://anonymous:my_passwd@ftp.prep.ai.mit.edu/pub/gnu
+4、http://joe:joespasswd@www.joes-hardware.com/sales_info.txt
+</code></pre><p>第一个例子没有用户或密码组件，只有标准的方案、主机和路径。如果某应用程序使用的 URL 方案要求输入用户名和密码，比如 FTP，但用户没有提供，<strong>它通常会插入一个默认的用户名和密码。</strong>比如，如果向浏览器提供一个 FTP URL，但没有指定用户名和密码，它就会插入 anonymous（匿名用户）作为你的用户名，并发送一个默认的密码（Internet Explorer 会发送 IEUser，Netscape Navigator 则会发送mozilla）。</p>
+<p>第二个例子显示了一个指定为 anonymous 的用户名。这个用户名与主机组件组合在<br>一起，看起来就像 E-mail 地址一样。字符“@”将用户和密码组件与 URL 的其余<br>部分分隔开来。</p>
+<p>在第三个例子中，指定了用户名（anonymous）和密码（my_passwd），两者之间由<br>字符“:”分隔。</p>
+<p><strong>4、路径</strong></p>
+<p>URL 的路径组件说明了资源位于服务器的什么地方。路径通常很像一个分级的文件系统路径。如：</p>
+<pre><code>http://www.joes-hardware.com:80/seasonal/index-fall.html
+</code></pre><p>这个 URL 中的路径为 /seasonal/index-fall.html，很像 UNIX 文件系统中的文件系统<br>路径。路径是服务器定位资源时所需的信息。每个路径段都有自己的参数（param）组件。</p>
+<p><strong>5、参数</strong></p>
+<p>为了向应用程序提供它们所需的输入参数，以便正确地与服务器进行交互，URL 中有一个参数组件。这个组件就是 URL 中的名值对列表，由字符“;”将其与 URL 的其余部分（以及各名值对）分隔开来。它们为应用程序提供了访问资源所需的所有附加信息。比如：</p>
+<pre><code>ftp://prep.ai.mit.edu/pub/gnu;type=d
+</code></pre><p>在这个例子中，有一个参数 type=d，参数名为 type，值为 d。<br>如前所述，HTTP URL 的路径组件可以分成若干路径段。每段都可以有自己的参<br>数。比如：</p>
+<pre><code>http://www.joes-hardware.com/hammers;sale=false/index.html;graphics=true
+</code></pre><p>这个例子就有两个路径段，hammers 和 index.html。hammers 路径段有参数 sale，其值<br>为 false。index.html 段有参数 graphics，其值为 true。</p>
+<p><strong>6、查询字符串</strong></p>
+<p>很多资源，比如数据库服务，都是可以通过提问题或进行查询来缩小所请求资源类型范围的。</p>
+<pre><code>http://www.joes-hardware.com/inventory-check.cgi?item=12731&amp;color=blue
+</code></pre><p>上面这条URL带有两个查询字符串，item和color，字符串间用&amp;区分开。</p>
+<p><strong>7、片段</strong></p>
+<p>有些资源类型，比如 HTML，除了资源级之外，还可以做进一步的划分。比如，对一个带有章节的大型文本文档来说，资源的 URL 会指向整个文本文档，但理想的情况是，能够指定资源中的那些章节。</p>
+<p>为了引用部分资源或资源的一个片段，URL 支持使用片段（frag）组件来表示一个资源内部的片段。比如，URL可以指向HTML文档中一个特定的图片或小节。片段挂在 URL 的右手边，最前面有一个字符“#”。比如：</p>
+<pre><code>http://www.joes-hardware.com/tools.html#drills
+</code></pre><p>HTTP 服务器通常只处理整个对象，而不是对象的片段，客户端不能将片段传送给服务器。浏览器从服务器获得了整个资源之后，会根据片段来显示你感兴趣的那部分资源。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTTP/" rel="tag"># HTTP</a>
+          
+            <a href="/tags/HTTP协议/" rel="tag"># HTTP协议</a>
+          
+            <a href="/tags/协议学习/" rel="tag"># 协议学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/05/Http协议学习-HTTP报文/" rel="prev" title="Http协议学习-HTTP报文">
+                Http协议学习-HTTP报文 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="YangKangJian" />
+            
+              <p class="site-author-name" itemprop="name">YangKangJian</p>
+              <p class="site-description motion-element" itemprop="description">仓廪实而知礼节，衣食足而知荣辱</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#URL与URI"><span class="nav-number">1.</span> <span class="nav-text">URL与URI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#URL的组成"><span class="nav-number">2.</span> <span class="nav-text">URL的组成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#URL语法"><span class="nav-number"></span> <span class="nav-text">URL语法</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YangKangJian</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
