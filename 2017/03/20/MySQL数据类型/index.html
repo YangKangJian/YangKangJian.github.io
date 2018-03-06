@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="HTTP,HTTP协议,协议学习," />
+  <meta name="keywords" content="MySQL," />
 
 
 
@@ -79,20 +79,18 @@
 
 
 
-<meta name="description" content="今天读了《HTTP权威指南》中的URL与资源这一节，做了以下的总结。">
-<meta name="keywords" content="HTTP,HTTP协议,协议学习">
+<meta name="description" content="MySQL的数据类型主要包括以下五大类：  整数类型：BIT、BOOL、TINY INT、SMALL INT、MEDIUM INT、 INT、 BIG INT  浮点数类型：FLOAT、DOUBLE、DECIMAL  字符串类型：CHAR、VARCHAR、TINY TEXT、TEXT、MEDIUM TEXT、LONGTEXT、TINY BLOB、BLOB、MEDIUM BLOB、LONG BLOB">
+<meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Http协议学习-URL与资源">
-<meta property="og:url" content="http://yoursite.com/2017/01/02/Http协议学习URL与URI/index.html">
+<meta property="og:title" content="MySQL数据常用类型记录">
+<meta property="og:url" content="http://yoursite.com/2017/03/20/MySQL数据类型/index.html">
 <meta property="og:site_name" content="YangKangJian Blog">
-<meta property="og:description" content="今天读了《HTTP权威指南》中的URL与资源这一节，做了以下的总结。">
+<meta property="og:description" content="MySQL的数据类型主要包括以下五大类：  整数类型：BIT、BOOL、TINY INT、SMALL INT、MEDIUM INT、 INT、 BIG INT  浮点数类型：FLOAT、DOUBLE、DECIMAL  字符串类型：CHAR、VARCHAR、TINY TEXT、TEXT、MEDIUM TEXT、LONGTEXT、TINY BLOB、BLOB、MEDIUM BLOB、LONG BLOB">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/URL.png">
-<meta property="og:updated_time" content="2018-03-01T02:34:24.051Z">
+<meta property="og:updated_time" content="2018-03-06T07:57:10.293Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Http协议学习-URL与资源">
-<meta name="twitter:description" content="今天读了《HTTP权威指南》中的URL与资源这一节，做了以下的总结。">
-<meta name="twitter:image" content="http://yoursite.com/images/URL.png">
+<meta name="twitter:title" content="MySQL数据常用类型记录">
+<meta name="twitter:description" content="MySQL的数据类型主要包括以下五大类：  整数类型：BIT、BOOL、TINY INT、SMALL INT、MEDIUM INT、 INT、 BIG INT  浮点数类型：FLOAT、DOUBLE、DECIMAL  字符串类型：CHAR、VARCHAR、TINY TEXT、TEXT、MEDIUM TEXT、LONGTEXT、TINY BLOB、BLOB、MEDIUM BLOB、LONG BLOB">
 
 
 
@@ -122,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/01/02/Http协议学习URL与URI/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/20/MySQL数据类型/"/>
 
 
 
 
 
-  <title>Http协议学习-URL与资源 | YangKangJian Blog</title>
+  <title>MySQL数据常用类型记录 | YangKangJian Blog</title>
   
 
 
@@ -265,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/02/Http协议学习URL与URI/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/20/MySQL数据类型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YangKangJian">
@@ -282,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Http协议学习-URL与资源</h1>
+          <h1 class="post-title" itemprop="name headline">MySQL数据常用类型记录</h1>
         
 
         <div class="post-meta">
@@ -294,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-02T14:28:11+08:00">
-                2017-01-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-20T13:59:50+08:00">
+                2017-03-20
               </time>
             
 
@@ -332,72 +330,147 @@
       
 
       
-        <p>今天读了《HTTP权威指南》中的URL与资源这一节，做了以下的总结。</p>
-<a id="more"></a>
-<h3 id="URL与URI"><a href="#URL与URI" class="headerlink" title="URL与URI"></a>URL与URI</h3><p>URL就是因特网资源的标准化名称。URL指向一条电子信息片段，告诉你它们位于何处，以及如何与之进行交互。</p>
-<p>URI是一类更通用的资源标识符，URL实际上是它的一个子集。URI 是一个通用的<br>概念，由两个主要的子集 URL 和 URN 构成，URL 是通过描述资源的位置来标识资<br>源的，而 URN则是通过名字来识别资源的，与它们当前所处位置无关。</p>
-<h3 id="URL的组成"><a href="#URL的组成" class="headerlink" title="URL的组成"></a>URL的组成</h3><p>1、URL分三部分组成，例如：</p>
-<pre><code>https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png
-</code></pre><ul>
-<li><p>URL 的第一部分（http）是 URL 方案（scheme）。方案可以告知 Web 客户端怎<br>样访问资源。在这个例子中，URL 说明要使用 HTTP 协议。</p>
+        <p>MySQL的数据类型主要包括以下五大类：</p>
+<ul>
+<li><p>整数类型：BIT、BOOL、TINY INT、SMALL INT、MEDIUM INT、 INT、 BIG INT</p>
 </li>
-<li><p>URL 的第二部分（<a href="http://www.google.com）指的是服务器的位置。这部分告知" target="_blank" rel="noopener">www.google.com）指的是服务器的位置。这部分告知</a><br>Web 客户端资源位于何处。</p>
+<li><p>浮点数类型：FLOAT、DOUBLE、DECIMAL</p>
 </li>
-<li><p>URL 的第三部分（/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png）是资源路径。路径说明了请求的是<br>服务器上哪个特定的本地资源。</p>
+<li><p>字符串类型：CHAR、VARCHAR、TINY TEXT、TEXT、MEDIUM TEXT、LONGTEXT、TINY BLOB、BLOB、MEDIUM BLOB、LONG BLOB</p>
+</li>
+<li><p>日期类型：Date、DateTime、TimeStamp、Time、Year</p>
+</li>
+<li><p>其他数据类型：BINARY、VARBINARY、ENUM、SET、Geometry、Point、MultiPoint、LineString、MultiLineString、Polygon、GeometryCollection等</p>
 </li>
 </ul>
-<p>2、URL提供了一种统一的资源命名方式。大多数 URL 都有同样的：“方案 :// 服务器<br>位置 / 路径”结构。</p>
-<p>3、URL 可以通过 HTTP 之外的其他协议来访问资源。它们可以指向因特网上的任意资<br>源：或者个人的 E-mail 账户：</p>
-<p>mailto:<a href="mailto:president@whitehouse.gov" target="_blank" rel="noopener">president@whitehouse.gov</a></p>
-<p>或者通过其他协议（比如 FTP 协议）访问的各种文件：</p>
-<p><a href="ftp://ftp.lots-o-books.com/pub/complete-price-list.xls" target="_blank" rel="noopener">ftp://ftp.lots-o-books.com/pub/complete-price-list.xls</a></p>
-<p>或者从流视频服务器上下载电影：</p>
-<p>rtsp://<a href="http://www.joes-hardware.com:554/interview/cto_video" target="_blank" rel="noopener">www.joes-hardware.com:554/interview/cto_video</a></p>
-<h2 id="URL语法"><a href="#URL语法" class="headerlink" title="URL语法"></a>URL语法</h2><p>URL 提供了一种定位因特网上任意资源的手段，但这些资源是可以通过各种不同的<br>方案（比如 HTTP、FTP、SMTP）来访问的，因此 URL 语法会随方案的不同而有<br>所不同。</p>
-<p>大多数 URL 方案的 URL 语法都建立在这个由 9 部分构成的通用格式上：</p>
-<pre><code>&lt;scheme&gt;://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;:&lt;port&gt;/&lt;path&gt;;&lt;params&gt;?&lt;query&gt;#&lt;frag&gt;
-</code></pre><p>几乎没有哪个 URL 中包含了所有这些组件。URL 最重要的 3 个部分是方案（scheme）、<br>主机（host）和路径（path）。</p>
-<p><img src="/images/URL.png" alt=""></p>
-<p><strong>1、方案-使用什么协议</strong></p>
-<p>方案实际上是规定如何访问指定资源的主要标识符，它会告诉负责解析 URL 的应用<br>程序应该使用什么协议。如：</p>
-<p>HTTP:</p>
-<pre><code>http://www.baidu.com
-</code></pre><p>FTP:<br>    <a href="ftp://ftp.lots-o-books.com/pub/complete-price-list.xls" target="_blank" rel="noopener">ftp://ftp.lots-o-books.com/pub/complete-price-list.xls</a></p>
-<p>除了常用协议外，还有些定制的协议的URL也是一样的，如JDBC的URL:</p>
-<pre><code>jdbc:mysql://localtion/3306/mydb?useSSL=false
-</code></pre><p><strong>2、主机与端口</strong></p>
-<p>要想在因特网上找到资源，应用程序要知道是哪台机器装载了资源，以及在那台机<br>器的什么地方可以找到能对目标资源进行访问的服务器。URL的主机和端口组件提<br>供了这两组信息。</p>
-<pre><code>http://www.joes-hardware.com:80/index.html
-http://161.58.228.45:80/index.html
-</code></pre><p>可以用主机名或者IP地址来表示主机，通用的协议都有默认的端口，如HTTP是80商品，FTP是21端口，浏览器发起HTTP请求，不填写端口用默认的端口。</p>
-<p><strong>3、用户名和密码</strong></p>
-<p>很多服务器都要求输入用户名和密码才会允许用户访问数据。FTP 服务器就是这样一个常见的实例。如：</p>
-<pre><code>1、ftp://ftp.prep.ai.mit.edu/pub/gnu
-2、ftp://anonymous@ftp.prep.ai.mit.edu/pub/gnu
-3、ftp://anonymous:my_passwd@ftp.prep.ai.mit.edu/pub/gnu
-4、http://joe:joespasswd@www.joes-hardware.com/sales_info.txt
-</code></pre><p>第一个例子没有用户或密码组件，只有标准的方案、主机和路径。如果某应用程序使用的 URL 方案要求输入用户名和密码，比如 FTP，但用户没有提供，<strong>它通常会插入一个默认的用户名和密码。</strong>比如，如果向浏览器提供一个 FTP URL，但没有指定用户名和密码，它就会插入 anonymous（匿名用户）作为你的用户名，并发送一个默认的密码（Internet Explorer 会发送 IEUser，Netscape Navigator 则会发送mozilla）。</p>
-<p>第二个例子显示了一个指定为 anonymous 的用户名。这个用户名与主机组件组合在<br>一起，看起来就像 E-mail 地址一样。字符“@”将用户和密码组件与 URL 的其余<br>部分分隔开来。</p>
-<p>在第三个例子中，指定了用户名（anonymous）和密码（my_passwd），两者之间由<br>字符“:”分隔。</p>
-<p><strong>4、路径</strong></p>
-<p>URL 的路径组件说明了资源位于服务器的什么地方。路径通常很像一个分级的文件系统路径。如：</p>
-<pre><code>http://www.joes-hardware.com:80/seasonal/index-fall.html
-</code></pre><p>这个 URL 中的路径为 /seasonal/index-fall.html，很像 UNIX 文件系统中的文件系统<br>路径。路径是服务器定位资源时所需的信息。每个路径段都有自己的参数（param）组件。</p>
-<p><strong>5、参数</strong></p>
-<p>为了向应用程序提供它们所需的输入参数，以便正确地与服务器进行交互，URL 中有一个参数组件。这个组件就是 URL 中的名值对列表，由字符“;”将其与 URL 的其余部分（以及各名值对）分隔开来。它们为应用程序提供了访问资源所需的所有附加信息。比如：</p>
-<pre><code>ftp://prep.ai.mit.edu/pub/gnu;type=d
-</code></pre><p>在这个例子中，有一个参数 type=d，参数名为 type，值为 d。<br>如前所述，HTTP URL 的路径组件可以分成若干路径段。每段都可以有自己的参<br>数。比如：</p>
-<pre><code>http://www.joes-hardware.com/hammers;sale=false/index.html;graphics=true
-</code></pre><p>这个例子就有两个路径段，hammers 和 index.html。hammers 路径段有参数 sale，其值<br>为 false。index.html 段有参数 graphics，其值为 true。</p>
-<p><strong>6、查询字符串</strong></p>
-<p>很多资源，比如数据库服务，都是可以通过提问题或进行查询来缩小所请求资源类型范围的。</p>
-<pre><code>http://www.joes-hardware.com/inventory-check.cgi?item=12731&amp;color=blue
-</code></pre><p>上面这条URL带有两个查询字符串，item和color，字符串间用&amp;区分开。</p>
-<p><strong>7、片段</strong></p>
-<p>有些资源类型，比如 HTML，除了资源级之外，还可以做进一步的划分。比如，对一个带有章节的大型文本文档来说，资源的 URL 会指向整个文本文档，但理想的情况是，能够指定资源中的那些章节。</p>
-<p>为了引用部分资源或资源的一个片段，URL 支持使用片段（frag）组件来表示一个资源内部的片段。比如，URL可以指向HTML文档中一个特定的图片或小节。片段挂在 URL 的右手边，最前面有一个字符“#”。比如：</p>
-<pre><code>http://www.joes-hardware.com/tools.html#drills
-</code></pre><p>HTTP 服务器通常只处理整个对象，而不是对象的片段，客户端不能将片段传送给服务器。浏览器从服务器获得了整个资源之后，会根据片段来显示你感兴趣的那部分资源。</p>
+<h2 id="整值类型"><a href="#整值类型" class="headerlink" title="整值类型"></a>整值类型</h2><table>
+<thead>
+<tr>
+<th>MySQL数据类型</th>
+<th>含义（有符号）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tinyint(m)</td>
+<td>1个字节,范围(-128~127)</td>
+</tr>
+<tr>
+<td>smallint(m)</td>
+<td>2个字节,范围(-32768~32767)</td>
+</tr>
+<tr>
+<td>mediumint(m)</td>
+<td>3个字节,范围(-8388608~8388607)</td>
+</tr>
+<tr>
+<td>int(m)</td>
+<td>4个字节,范围(-2147483648~2147483647)</td>
+</tr>
+<tr>
+<td>bigint(m)</td>
+<td>8个字节,范围(+-9.22*10的18次方)</td>
+</tr>
+<tr>
+<td>decimal(m,d)</td>
+<td>参数m&lt;65 是总个数，d&lt;30且 d&lt;m 是小数位。</td>
+</tr>
+<tr>
+<td>float(m,d)</td>
+<td>单精度浮点型,8位精度(4字节),m总个数,d小数位</td>
+</tr>
+<tr>
+<td>double(m,d)</td>
+<td>双精度浮点型,16位精度(8字节),m总个数,d小数位</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>整型:取值范围加unsigned，最大值*2，如tinyint unsigned的取值范围为(0~256)。int(m)里的m是表示SELECT查询结果集中的显示宽度，不影响实际的取值范围。</p>
+</li>
+<li><p>浮点数float、double:设一个字段定义为float(5,3)，如果插入一个数123.45678,实际数据库里存的是123.457，但总个数还以实际为准，即6位。</p>
+</li>
+<li><p>decimal浮点型在数据库中存放的是近似值，而定点类型在数据库中存放的是精确值。 </p>
+</li>
+</ul>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><table>
+<thead>
+<tr>
+<th>MySQL数据类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>char(n)</td>
+<td>固定长度，最多255个字符</td>
+</tr>
+<tr>
+<td>varchar(n)</td>
+<td>固定长度，最多65535个字符</td>
+</tr>
+<tr>
+<td>tinytext</td>
+<td>可变长度，最多255个字符</td>
+</tr>
+<tr>
+<td>text</td>
+<td>可变长度，最多65535个字符</td>
+</tr>
+<tr>
+<td>mediumtext</td>
+<td>可变长度，最多2的24次方-1个字符</td>
+</tr>
+<tr>
+<td>longtext</td>
+<td>可变长度，最多2的32次方-1个字符</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>char和varchar：</li>
+</ul>
+<p>1.char(n) 若存入字符数小于n，则以空格补于其后，查询之时再将空格去掉。所以char类型存储的字符串末尾不能有空格，varchar不限于此。 </p>
+<p>2.char(n) 固定长度，char(4)不管是存入几个字符，都将占用4个字节，varchar是存入的实际字符数+1个字节（n&lt;=255）或2个字节(n&gt;255)，所以varchar(4),存入3个字符将占用4个字节。 </p>
+<p>3.char类型的字符串检索速度要比varchar类型的快。</p>
+<ul>
+<li>varchar和text：</li>
+</ul>
+<p>1.varchar可指定n，text不能指定，内部存储varchar是存入的实际字符数+1个字节（n&lt;=255）或2个字节(n&gt;255)，text是实际字符数+2个字</p>
+<p>节。 </p>
+<p>2.text类型不能有默认值。 </p>
+<p>3.varchar可直接创建索引，text创建索引要指定前多少个字符。varchar查询速度快于text,在都创建索引的情况下，text的索引似乎不起作用。</p>
+<h2 id="日期时间类型"><a href="#日期时间类型" class="headerlink" title="日期时间类型"></a>日期时间类型</h2><table>
+<thead>
+<tr>
+<th>MySQL数据类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>date</td>
+<td>日期 ‘2008-12-2’</td>
+</tr>
+<tr>
+<td>time</td>
+<td>时间 ‘12:25:36’</td>
+</tr>
+<tr>
+<td>datetime</td>
+<td>日期时间 ‘2008-12-2 22:06:44’</td>
+</tr>
+<tr>
+<td>year</td>
+<td>年份值 2008 YYYY</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>自动存储记录修改时间</td>
+</tr>
+</tbody>
+</table>
+<p>若定义一个字段为timestamp，这个字段里的时间数据会随其他字段修改的时候自动刷新，所以这个数据类型的字段可以存放这条记录最后被修改的时间。</p>
 
       
     </div>
@@ -415,11 +488,7 @@ http://161.58.228.45:80/index.html
       
         <div class="post-tags">
           
-            <a href="/tags/HTTP/" rel="tag"># HTTP</a>
-          
-            <a href="/tags/HTTP协议/" rel="tag"># HTTP协议</a>
-          
-            <a href="/tags/协议学习/" rel="tag"># 协议学习</a>
+            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
           
         </div>
       
@@ -432,15 +501,15 @@ http://161.58.228.45:80/index.html
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/03/08/数据库事务笔记/" rel="next" title="数据库事务笔记">
+                <i class="fa fa-chevron-left"></i> 数据库事务笔记
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/05/Http协议学习-HTTP报文(一)/" rel="prev" title="Http协议学习-HTTP报文（一）">
-                Http协议学习-HTTP报文（一） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -567,7 +636,7 @@ http://161.58.228.45:80/index.html
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#URL与URI"><span class="nav-number">1.</span> <span class="nav-text">URL与URI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#URL的组成"><span class="nav-number">2.</span> <span class="nav-text">URL的组成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#URL语法"><span class="nav-number"></span> <span class="nav-text">URL语法</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#整值类型"><span class="nav-number">1.</span> <span class="nav-text">整值类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串"><span class="nav-number">2.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日期时间类型"><span class="nav-number">3.</span> <span class="nav-text">日期时间类型</span></a></li></ol></div>
             
 
           </div>
