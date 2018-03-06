@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="HTTP,HTTP协议,协议学习," />
+  <meta name="keywords" content="数据库," />
 
 
 
@@ -79,20 +79,18 @@
 
 
 
-<meta name="description" content="今天读了《HTTP权威指南》中的URL与资源这一节，做了以下的总结。">
-<meta name="keywords" content="HTTP,HTTP协议,协议学习">
+<meta name="description" content="基本概念数据库事务（简称：事务）是数据库管理系统执行过程中的一个逻辑单位，由一个有限的数据库操作序列构成。简单来说，一个事务是可以被看作一个单元的一系列SQL语句的集合。 一个数据库事务通常包含了一个序列的对数据库的读/写操作。它的存在包含有以下两个目的： 为数据库操作序列提供了一个从失败中恢复到正常状态的方法，同时提供了数据库即使在异常状态下仍能保持一致性的方法。当多个应用程序在并发访问数据库时">
+<meta name="keywords" content="数据库">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Http协议学习-URL与资源">
-<meta property="og:url" content="http://yoursite.com/2017/01/02/Http协议学习URL与URI/index.html">
+<meta property="og:title" content="数据库事务笔记">
+<meta property="og:url" content="http://yoursite.com/2017/03/08/数据库事务笔记/index.html">
 <meta property="og:site_name" content="YangKangJian Blog">
-<meta property="og:description" content="今天读了《HTTP权威指南》中的URL与资源这一节，做了以下的总结。">
+<meta property="og:description" content="基本概念数据库事务（简称：事务）是数据库管理系统执行过程中的一个逻辑单位，由一个有限的数据库操作序列构成。简单来说，一个事务是可以被看作一个单元的一系列SQL语句的集合。 一个数据库事务通常包含了一个序列的对数据库的读/写操作。它的存在包含有以下两个目的： 为数据库操作序列提供了一个从失败中恢复到正常状态的方法，同时提供了数据库即使在异常状态下仍能保持一致性的方法。当多个应用程序在并发访问数据库时">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/URL.png">
-<meta property="og:updated_time" content="2018-03-01T02:34:24.051Z">
+<meta property="og:updated_time" content="2018-03-06T05:00:43.537Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Http协议学习-URL与资源">
-<meta name="twitter:description" content="今天读了《HTTP权威指南》中的URL与资源这一节，做了以下的总结。">
-<meta name="twitter:image" content="http://yoursite.com/images/URL.png">
+<meta name="twitter:title" content="数据库事务笔记">
+<meta name="twitter:description" content="基本概念数据库事务（简称：事务）是数据库管理系统执行过程中的一个逻辑单位，由一个有限的数据库操作序列构成。简单来说，一个事务是可以被看作一个单元的一系列SQL语句的集合。 一个数据库事务通常包含了一个序列的对数据库的读/写操作。它的存在包含有以下两个目的： 为数据库操作序列提供了一个从失败中恢复到正常状态的方法，同时提供了数据库即使在异常状态下仍能保持一致性的方法。当多个应用程序在并发访问数据库时">
 
 
 
@@ -122,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/01/02/Http协议学习URL与URI/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/08/数据库事务笔记/"/>
 
 
 
 
 
-  <title>Http协议学习-URL与资源 | YangKangJian Blog</title>
+  <title>数据库事务笔记 | YangKangJian Blog</title>
   
 
 
@@ -265,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/02/Http协议学习URL与URI/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/08/数据库事务笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YangKangJian">
@@ -282,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Http协议学习-URL与资源</h1>
+          <h1 class="post-title" itemprop="name headline">数据库事务笔记</h1>
         
 
         <div class="post-meta">
@@ -294,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-02T14:28:11+08:00">
-                2017-01-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-08T12:13:32+08:00">
+                2017-03-08
               </time>
             
 
@@ -332,72 +330,29 @@
       
 
       
-        <p>今天读了《HTTP权威指南》中的URL与资源这一节，做了以下的总结。</p>
-<a id="more"></a>
-<h3 id="URL与URI"><a href="#URL与URI" class="headerlink" title="URL与URI"></a>URL与URI</h3><p>URL就是因特网资源的标准化名称。URL指向一条电子信息片段，告诉你它们位于何处，以及如何与之进行交互。</p>
-<p>URI是一类更通用的资源标识符，URL实际上是它的一个子集。URI 是一个通用的<br>概念，由两个主要的子集 URL 和 URN 构成，URL 是通过描述资源的位置来标识资<br>源的，而 URN则是通过名字来识别资源的，与它们当前所处位置无关。</p>
-<h3 id="URL的组成"><a href="#URL的组成" class="headerlink" title="URL的组成"></a>URL的组成</h3><p>1、URL分三部分组成，例如：</p>
-<pre><code>https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png
-</code></pre><ul>
-<li><p>URL 的第一部分（http）是 URL 方案（scheme）。方案可以告知 Web 客户端怎<br>样访问资源。在这个例子中，URL 说明要使用 HTTP 协议。</p>
-</li>
-<li><p>URL 的第二部分（<a href="http://www.google.com）指的是服务器的位置。这部分告知" target="_blank" rel="noopener">www.google.com）指的是服务器的位置。这部分告知</a><br>Web 客户端资源位于何处。</p>
-</li>
-<li><p>URL 的第三部分（/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png）是资源路径。路径说明了请求的是<br>服务器上哪个特定的本地资源。</p>
-</li>
-</ul>
-<p>2、URL提供了一种统一的资源命名方式。大多数 URL 都有同样的：“方案 :// 服务器<br>位置 / 路径”结构。</p>
-<p>3、URL 可以通过 HTTP 之外的其他协议来访问资源。它们可以指向因特网上的任意资<br>源：或者个人的 E-mail 账户：</p>
-<p>mailto:<a href="mailto:president@whitehouse.gov" target="_blank" rel="noopener">president@whitehouse.gov</a></p>
-<p>或者通过其他协议（比如 FTP 协议）访问的各种文件：</p>
-<p><a href="ftp://ftp.lots-o-books.com/pub/complete-price-list.xls" target="_blank" rel="noopener">ftp://ftp.lots-o-books.com/pub/complete-price-list.xls</a></p>
-<p>或者从流视频服务器上下载电影：</p>
-<p>rtsp://<a href="http://www.joes-hardware.com:554/interview/cto_video" target="_blank" rel="noopener">www.joes-hardware.com:554/interview/cto_video</a></p>
-<h2 id="URL语法"><a href="#URL语法" class="headerlink" title="URL语法"></a>URL语法</h2><p>URL 提供了一种定位因特网上任意资源的手段，但这些资源是可以通过各种不同的<br>方案（比如 HTTP、FTP、SMTP）来访问的，因此 URL 语法会随方案的不同而有<br>所不同。</p>
-<p>大多数 URL 方案的 URL 语法都建立在这个由 9 部分构成的通用格式上：</p>
-<pre><code>&lt;scheme&gt;://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;:&lt;port&gt;/&lt;path&gt;;&lt;params&gt;?&lt;query&gt;#&lt;frag&gt;
-</code></pre><p>几乎没有哪个 URL 中包含了所有这些组件。URL 最重要的 3 个部分是方案（scheme）、<br>主机（host）和路径（path）。</p>
-<p><img src="/images/URL.png" alt=""></p>
-<p><strong>1、方案-使用什么协议</strong></p>
-<p>方案实际上是规定如何访问指定资源的主要标识符，它会告诉负责解析 URL 的应用<br>程序应该使用什么协议。如：</p>
-<p>HTTP:</p>
-<pre><code>http://www.baidu.com
-</code></pre><p>FTP:<br>    <a href="ftp://ftp.lots-o-books.com/pub/complete-price-list.xls" target="_blank" rel="noopener">ftp://ftp.lots-o-books.com/pub/complete-price-list.xls</a></p>
-<p>除了常用协议外，还有些定制的协议的URL也是一样的，如JDBC的URL:</p>
-<pre><code>jdbc:mysql://localtion/3306/mydb?useSSL=false
-</code></pre><p><strong>2、主机与端口</strong></p>
-<p>要想在因特网上找到资源，应用程序要知道是哪台机器装载了资源，以及在那台机<br>器的什么地方可以找到能对目标资源进行访问的服务器。URL的主机和端口组件提<br>供了这两组信息。</p>
-<pre><code>http://www.joes-hardware.com:80/index.html
-http://161.58.228.45:80/index.html
-</code></pre><p>可以用主机名或者IP地址来表示主机，通用的协议都有默认的端口，如HTTP是80商品，FTP是21端口，浏览器发起HTTP请求，不填写端口用默认的端口。</p>
-<p><strong>3、用户名和密码</strong></p>
-<p>很多服务器都要求输入用户名和密码才会允许用户访问数据。FTP 服务器就是这样一个常见的实例。如：</p>
-<pre><code>1、ftp://ftp.prep.ai.mit.edu/pub/gnu
-2、ftp://anonymous@ftp.prep.ai.mit.edu/pub/gnu
-3、ftp://anonymous:my_passwd@ftp.prep.ai.mit.edu/pub/gnu
-4、http://joe:joespasswd@www.joes-hardware.com/sales_info.txt
-</code></pre><p>第一个例子没有用户或密码组件，只有标准的方案、主机和路径。如果某应用程序使用的 URL 方案要求输入用户名和密码，比如 FTP，但用户没有提供，<strong>它通常会插入一个默认的用户名和密码。</strong>比如，如果向浏览器提供一个 FTP URL，但没有指定用户名和密码，它就会插入 anonymous（匿名用户）作为你的用户名，并发送一个默认的密码（Internet Explorer 会发送 IEUser，Netscape Navigator 则会发送mozilla）。</p>
-<p>第二个例子显示了一个指定为 anonymous 的用户名。这个用户名与主机组件组合在<br>一起，看起来就像 E-mail 地址一样。字符“@”将用户和密码组件与 URL 的其余<br>部分分隔开来。</p>
-<p>在第三个例子中，指定了用户名（anonymous）和密码（my_passwd），两者之间由<br>字符“:”分隔。</p>
-<p><strong>4、路径</strong></p>
-<p>URL 的路径组件说明了资源位于服务器的什么地方。路径通常很像一个分级的文件系统路径。如：</p>
-<pre><code>http://www.joes-hardware.com:80/seasonal/index-fall.html
-</code></pre><p>这个 URL 中的路径为 /seasonal/index-fall.html，很像 UNIX 文件系统中的文件系统<br>路径。路径是服务器定位资源时所需的信息。每个路径段都有自己的参数（param）组件。</p>
-<p><strong>5、参数</strong></p>
-<p>为了向应用程序提供它们所需的输入参数，以便正确地与服务器进行交互，URL 中有一个参数组件。这个组件就是 URL 中的名值对列表，由字符“;”将其与 URL 的其余部分（以及各名值对）分隔开来。它们为应用程序提供了访问资源所需的所有附加信息。比如：</p>
-<pre><code>ftp://prep.ai.mit.edu/pub/gnu;type=d
-</code></pre><p>在这个例子中，有一个参数 type=d，参数名为 type，值为 d。<br>如前所述，HTTP URL 的路径组件可以分成若干路径段。每段都可以有自己的参<br>数。比如：</p>
-<pre><code>http://www.joes-hardware.com/hammers;sale=false/index.html;graphics=true
-</code></pre><p>这个例子就有两个路径段，hammers 和 index.html。hammers 路径段有参数 sale，其值<br>为 false。index.html 段有参数 graphics，其值为 true。</p>
-<p><strong>6、查询字符串</strong></p>
-<p>很多资源，比如数据库服务，都是可以通过提问题或进行查询来缩小所请求资源类型范围的。</p>
-<pre><code>http://www.joes-hardware.com/inventory-check.cgi?item=12731&amp;color=blue
-</code></pre><p>上面这条URL带有两个查询字符串，item和color，字符串间用&amp;区分开。</p>
-<p><strong>7、片段</strong></p>
-<p>有些资源类型，比如 HTML，除了资源级之外，还可以做进一步的划分。比如，对一个带有章节的大型文本文档来说，资源的 URL 会指向整个文本文档，但理想的情况是，能够指定资源中的那些章节。</p>
-<p>为了引用部分资源或资源的一个片段，URL 支持使用片段（frag）组件来表示一个资源内部的片段。比如，URL可以指向HTML文档中一个特定的图片或小节。片段挂在 URL 的右手边，最前面有一个字符“#”。比如：</p>
-<pre><code>http://www.joes-hardware.com/tools.html#drills
-</code></pre><p>HTTP 服务器通常只处理整个对象，而不是对象的片段，客户端不能将片段传送给服务器。浏览器从服务器获得了整个资源之后，会根据片段来显示你感兴趣的那部分资源。</p>
+        <h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>数据库事务（简称：事务）是数据库管理系统执行过程中的一个逻辑单位，由一个有限的数据库操作序列构成。简单来说，一个事务是可以被看作一个单元的一系列SQL语句的集合。</p>
+<p>一个数据库事务通常包含了一个序列的对数据库的读/写操作。它的存在包含有以下两个目的：</p>
+<p>为数据库操作序列提供了一个从失败中恢复到正常状态的方法，同时提供了数据库即使在异常状态下仍能保持一致性的方法。当多个应用程序在并发访问数据库时，可以在这些应用程序之间提供一个隔离方法，以防止彼此的操作互相干扰。当事务被提交给了DBMS（数据库管理系统），则DBMS（数据库管理系统）需要确保该事务中的所有操作都成功完成且其结果被永久保存在数据库中，如 果事务中有的操作没有成功完成，则事务中的所有操作都需要被回滚，回到 事务执行前的状态;同时，该事务对数据库或者其他事务的执行无影响，所有的事务都好像在独立的运行。</p>
+<p>但在现实情况下，失败的风险很高。在一个数据库事务的执行过程中，有可能会遇上事务操作失败、数据库系统/操作系统失败，甚至是存储介质失败等情况。这便需要DBMS对一个执行失败的事务执行恢复操作，将其数据库状态恢复到一致状态（数据的一致性得到保证的状态）。为了实现将数据库 状态恢复到一致状态的功能，DBMS通常需要维护事务日志以追踪事务中所有影响数据库数据的操作</p>
+<h1 id="四大特性-ACID"><a href="#四大特性-ACID" class="headerlink" title="四大特性(ACID)"></a>四大特性(ACID)</h1><h2 id="原子性-Atomicity"><a href="#原子性-Atomicity" class="headerlink" title="原子性(Atomicity)"></a>原子性(Atomicity)</h2><p>指的是事务是一个不可分割的工作单位，事务的操作要么都发生，要么都不 发生</p>
+<h2 id="一致性-Consistency"><a href="#一致性-Consistency" class="headerlink" title="一致性(Consistency)"></a>一致性(Consistency)</h2><p>事务前后的数据完整性必须保持一致</p>
+<h2 id="隔离性-Isolation"><a href="#隔离性-Isolation" class="headerlink" title="隔离性(Isolation)"></a>隔离性(Isolation)</h2><p>事务的隔离性是指多个用户并发访问数据库时，一个用户的事务不能被其他的用户事务所干扰，多个并发事务之间数据要相互隔离</p>
+<p>多个线程开各自事务操作数据库中的数据时，数据加系统要负责隔离操作，以保证各个线程在获取数据时的准确性</p>
+<p>3.如不考虑隔离性，可能会引发如下的问题:</p>
+<h3 id="脏读"><a href="#脏读" class="headerlink" title="脏读"></a>脏读</h3><p><strong>指上事务读取了另外一个事务未提交的数据。</strong>这个是非常之危险的，假设 A向B转账100000元，对应的SQL语句是：</p>
+<p>update account set money=money+100000 while name=’b’</p>
+<p>update account set money=money-100000 while name=’a’</p>
+<p>当第一条SQL执行完成后，第2条还没有执行(A没有提交时)，如果此时B查询自己的帐户，就会发现自己多了100000元钱。如果A等B走后再进行事务的回滚，这个时候B就会损失100000元！这个是因为这个B开一个事务去读了那个A事务还没有提交的数据所造成的！</p>
+<h3 id="不可重复读"><a href="#不可重复读" class="headerlink" title="不可重复读"></a>不可重复读</h3><p><strong>指在一个事务内读取表中的某一行数据，多次读取结果不同。(一个事务读取到的另外一个事务提交的数据)</strong></p>
+<p>举一个简单的例子，就是中央人银行每个月的月底都会生成这一个月的一个财务报表，这个时候就开启一个事务生成了A报表和B报表分别送给这个总理和主席，但A报表和B报表之间有储存业务的产生，这个时候B报表生成的总额和A报表生成的总额是不一样的。就是因为这个事务读取了另外一个事务提交的数据了！这种情况有时候好，但有时候就出问题了！</p>
+<h3 id="虚读-幻读"><a href="#虚读-幻读" class="headerlink" title="虚读(幻读)"></a>虚读(幻读)</h3><p><strong>指在一个事务内读取到了别的事务插入的数据，导致前后不一致。</strong>这个和不可重复读不一样，不可重复读是指某一行的数据，这个是指整个表的数据，第一次读有100条数据，但第二次读就出现了200条数据，前后读取是不一致的问题出现了！这种情况和不可重复读影响都是一样的，有时候好，但有时候就出问题了。</p>
+<h3 id="数据库定义了四种的隔离级别"><a href="#数据库定义了四种的隔离级别" class="headerlink" title="数据库定义了四种的隔离级别"></a>数据库定义了四种的隔离级别</h3><p>1）Serializable :可避免脏读、不可重复读、虚读的发生。(串行化，这个 是性能最差的，是单线程的操作!就是有一个事务在进行，那个事务还没有commit的时候，这个事务作任务操作都不能，都必需要等到那个事务commit时候才能进行！)</p>
+<p>2）Repeatable read : 可避免脏读、不可重复读的情况发生。(可重复读)</p>
+<p>3）Read committed : 可避免脏读情况发生。(读已提交)</p>
+<p>4）Read uncommitted :最低的级别，以上情况均无法保证。(读未提交)</p>
+<p>这四种隔离的级别越往上性能就越低！可根据需求调整！</p>
+<p>在MySQL可以通过set transaction isolation level 设置事务隔离级别，select @@tx_isolation 查询当前事务隔离级别</p>
+<h2 id="持久性-Durability"><a href="#持久性-Durability" class="headerlink" title="持久性(Durability)"></a>持久性(Durability)</h2><p>持久性是指一个事务一旦被提交，它对数据库中的数据的改变就是永久性的 ，接下来她即使数据库发生故障也不应该对其有任何的影响！</p>
 
       
     </div>
@@ -415,11 +370,7 @@ http://161.58.228.45:80/index.html
       
         <div class="post-tags">
           
-            <a href="/tags/HTTP/" rel="tag"># HTTP</a>
-          
-            <a href="/tags/HTTP协议/" rel="tag"># HTTP协议</a>
-          
-            <a href="/tags/协议学习/" rel="tag"># 协议学习</a>
+            <a href="/tags/数据库/" rel="tag"># 数据库</a>
           
         </div>
       
@@ -432,15 +383,15 @@ http://161.58.228.45:80/index.html
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/03/05/JVM学习笔记-JVM运行时内存模型/" rel="next" title="JVM学习笔记(1)-JVM运行时内存模型">
+                <i class="fa fa-chevron-left"></i> JVM学习笔记(1)-JVM运行时内存模型
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/05/Http协议学习-HTTP报文(一)/" rel="prev" title="Http协议学习-HTTP报文（一）">
-                Http协议学习-HTTP报文（一） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -567,7 +518,7 @@ http://161.58.228.45:80/index.html
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#URL与URI"><span class="nav-number">1.</span> <span class="nav-text">URL与URI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#URL的组成"><span class="nav-number">2.</span> <span class="nav-text">URL的组成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#URL语法"><span class="nav-number"></span> <span class="nav-text">URL语法</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本概念"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四大特性-ACID"><span class="nav-number">2.</span> <span class="nav-text">四大特性(ACID)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原子性-Atomicity"><span class="nav-number">2.1.</span> <span class="nav-text">原子性(Atomicity)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一致性-Consistency"><span class="nav-number">2.2.</span> <span class="nav-text">一致性(Consistency)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#隔离性-Isolation"><span class="nav-number">2.3.</span> <span class="nav-text">隔离性(Isolation)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#脏读"><span class="nav-number">2.3.1.</span> <span class="nav-text">脏读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不可重复读"><span class="nav-number">2.3.2.</span> <span class="nav-text">不可重复读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚读-幻读"><span class="nav-number">2.3.3.</span> <span class="nav-text">虚读(幻读)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库定义了四种的隔离级别"><span class="nav-number">2.3.4.</span> <span class="nav-text">数据库定义了四种的隔离级别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#持久性-Durability"><span class="nav-number">2.4.</span> <span class="nav-text">持久性(Durability)</span></a></li></ol></li></ol></div>
             
 
           </div>
