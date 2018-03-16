@@ -88,7 +88,7 @@
 <meta property="og:description" content="今天做项目的时候，需要用到Filter技术来过滤请求，很好奇里面是如何实现这个Filter链的调用的，查阅下资料，原来是责任链设计模式的一个应用。简单做下学习笔记。 责任链设计模式责任链设计模式是设计模式中的十一个行为模式的其中一种，使用频率比较多，在一些框架的设计里面都会见到它的影子。职责链模式通过建立一条链来组织请求的处理者，请求将沿着链进行传递，请求发送者无须知道请求在何时、何处以及如何被处">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/ZYL1.png">
-<meta property="og:updated_time" content="2018-03-16T07:12:37.968Z">
+<meta property="og:updated_time" content="2018-03-16T07:39:59.714Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="责任链设计模式">
 <meta name="twitter:description" content="今天做项目的时候，需要用到Filter技术来过滤请求，很好奇里面是如何实现这个Filter链的调用的，查阅下资料，原来是责任链设计模式的一个应用。简单做下学习笔记。 责任链设计模式责任链设计模式是设计模式中的十一个行为模式的其中一种，使用频率比较多，在一些框架的设计里面都会见到它的影子。职责链模式通过建立一条链来组织请求的处理者，请求将沿着链进行传递，请求发送者无须知道请求在何时、何处以及如何被处">
@@ -580,6 +580,15 @@
 <ul>
 <li>在实际应用中，一般会有一个封装类对责任模式进行封装，也就是替代Client类，直接返回链中的第一个处理者，具体链的设置不需要高层次模块关系，这样，更简化了高层次模块的调用，减少模块间的耦合，提高系统的灵活性。</li>
 </ul>
+<p><strong>责任链模式的优点</strong></p>
+<p>责任链模式非常显著的优点是将请求和处理分开。请求者可以不用知道是谁处理的，处<br>理者可以不用知道请求的全貌（例如在J2EE项目开发中，可以剥离出无状态Bean由责任链处<br>理），两者解耦，提高系统的灵活性。</p>
+<p><strong>责任链模式的缺点</strong></p>
+<p>责任链有两个非常显著的缺点：一是性能问题，每个请求都是从链头遍历到链尾，特别<br>是在链比较长的时候，性能是一个非常大的问题。二是调试不很方便，特别是链条比较长，<br>环节比较多的时候，由于采用了类似递归的方式，调试的时候逻辑可能比较复杂。</p>
+<p><strong>责任链模式的注意事项</strong></p>
+<p>链中节点数量需要控制，避免出现超长链的情况，一般的做法是在Handler中设置一个<br>最大节点数量，在setNext方法中判断是否已经是超过其阈值，超过则不允许该链建立，避免<br>无意识地破坏系统性能。</p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li>《设计模式之禅》</li>
+</ul>
 
       
     </div>
@@ -745,7 +754,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#责任链设计模式"><span class="nav-number">1.</span> <span class="nav-text">责任链设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例子一"><span class="nav-number">1.1.</span> <span class="nav-text">例子一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例子二"><span class="nav-number">1.2.</span> <span class="nav-text">例子二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">1.3.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#责任链设计模式"><span class="nav-number">1.</span> <span class="nav-text">责任链设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例子一"><span class="nav-number">1.1.</span> <span class="nav-text">例子一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例子二"><span class="nav-number">1.2.</span> <span class="nav-text">例子二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">1.3.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">1.4.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
             
 
           </div>
