@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数据结构和算法," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="看一眼书架上的布满灰尘的橙汁色书《算法》，回想起当初在大学的时候那种对数据结构和算法的那种疯狂，认为没有什么结构能比得上一棵二叉树还美丽，看到什么生活例子都会映射到数据结构中来，排个队也会想将队列扭转成栈。如今出来工作了，多数和业务和框架这些打交道了，当年在学校学习这本书被尘封在书架上，有些算法没用到已经遗忘得差不多了。觉得，是时候再次学习了，顺便写写总结。《算法》这本书虽然这本书仅仅是入门级的，">
+<meta name="keywords" content="数据结构和算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法&amp;数据结构学习-初级排序算法">
+<meta property="og:url" content="http://yoursite.com/2017/05/01/算法-数据结构学习-初级排序算法/index.html">
+<meta property="og:site_name" content="YangKangJian Blog">
+<meta property="og:description" content="看一眼书架上的布满灰尘的橙汁色书《算法》，回想起当初在大学的时候那种对数据结构和算法的那种疯狂，认为没有什么结构能比得上一棵二叉树还美丽，看到什么生活例子都会映射到数据结构中来，排个队也会想将队列扭转成栈。如今出来工作了，多数和业务和框架这些打交道了，当年在学校学习这本书被尘封在书架上，有些算法没用到已经遗忘得差不多了。觉得，是时候再次学习了，顺便写写总结。《算法》这本书虽然这本书仅仅是入门级的，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-18T14:03:21.882Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法&amp;数据结构学习-初级排序算法">
+<meta name="twitter:description" content="看一眼书架上的布满灰尘的橙汁色书《算法》，回想起当初在大学的时候那种对数据结构和算法的那种疯狂，认为没有什么结构能比得上一棵二叉树还美丽，看到什么生活例子都会映射到数据结构中来，排个队也会想将队列扭转成栈。如今出来工作了，多数和业务和框架这些打交道了，当年在学校学习这本书被尘封在书架上，有些算法没用到已经遗忘得差不多了。觉得，是时候再次学习了，顺便写写总结。《算法》这本书虽然这本书仅仅是入门级的，">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/01/算法-数据结构学习-初级排序算法/"/>
+
+
+
+
+
+  <title>算法&数据结构学习-初级排序算法 | YangKangJian Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YangKangJian Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/01/算法-数据结构学习-初级排序算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YangKangJian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YangKangJian Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">算法&数据结构学习-初级排序算法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-01T14:42:45+08:00">
+                2017-05-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>看一眼书架上的布满灰尘的橙汁色书《算法》，回想起当初在大学的时候那种对数据结构和算法的那种疯狂，认为没有什么结构能比得上一棵二叉树还美丽，看到什么生活例子都会映射到数据结构中来，排个队也会想将队列扭转成栈。如今出来工作了，多数和业务和框架这些打交道了，当年在学校学习这本书被尘封在书架上，有些算法没用到已经遗忘得差不多了。觉得，是时候再次学习了，顺便写写总结。《算法》这本书虽然这本书仅仅是入门级的，但非常推荐去学，作为一个日常的应用层码农，学习这本书，足够应对工作中出来的算法和数据结构问题了，当然，不是设计算法这些工作了。</p>
+<p>今天来学习下两个基础的简单排序算法，选择排序和插入排序。</p>
+<h2 id="初级排序算法"><a href="#初级排序算法" class="headerlink" title="初级排序算法"></a>初级排序算法</h2><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>《算法》这本书用Java语言实现的，通篇中让我觉得最好的地方就是规范，先设计出接口，然后面向接口进行编程。书中排序算法抽象出了这么一个排序的类:</p>
+<pre><code>public abstract class Sort&lt;T&gt; {
+    public abstract void sort(Comparable&lt;T&gt;[] a);
+
+    //比较对象大小，判断v是否小于于w
+    @SuppressWarnings(&quot;unchecked&quot;)
+    public boolean less(Comparable&lt;T&gt; v, Comparable&lt;T&gt; w) {
+        return v.compareTo((T) w) &lt; 0;
+    }
+
+    //交换
+    public void exch(Comparable&lt;T&gt;[] a, int i, int j) {
+        Comparable&lt;T&gt; t = a[i];
+        a[i] = a[j];
+        a[j] = t;
+    }
+
+    //打印
+    public void show(Comparable&lt;T&gt;[] a) {
+        for (int i = 0; i &lt; a.length; i++) {
+            System.out.print(a[i].toString() + &quot;,&quot;);
+        }
+    }
+
+    //是否已经排序了
+    public boolean isSorted(Comparable&lt;T&gt;[] a) {
+        for (int i = 1; i &lt; a.length; i++) {
+            if (less(a[i], a[i - 1])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+}
+</code></pre><p>在Java中Comparable是一个比较器接口，一个类实现了Comparable接口可以通过compareTo方法的实现对象的比较，compareTo方法也被称为自然比较方法。如果一个Collection的对象想要通过Collections的sort方法实现排序的，那么这个对象必须实现Comparable接口。compareTo方法的返回值是int，有三种情况：</p>
+<ul>
+<li><p>比较者大于被比较者，那么返回1</p>
+</li>
+<li><p>比较者等于被比较者，那么返回0</p>
+</li>
+<li><p>比较者小于被比较者，那么返回-1</p>
+</li>
+</ul>
+<p>Java中的基本数据类型的包装类和String这些都实现了Comparable这个接口，所以，上面的Sort这个抽象类适合于这些实现Comparable接口的对象进行排序。</p>
+<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><p>选择排序（Selection sort）是一种简单直观的排序算法。它的工作原理如下。首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。以此类推，直到所有元素均排序完毕。</p>
+<p>例如，将数组元素进行顺序排列，最简单的选择排序算法思路是这样的:</p>
+<p>1、首先找出数组元素中最小的元素，和数组的第一个元素交换(如果第一个元素是最小的就和自己交换)</p>
+<p>2、然后再在剩下的元素中找出最小的元素，将它与第二个元素进行交换，以此类推，直到最后一个元素为止。</p>
+<p>所以这种方法就是在剩余的元素之中不断选择最小的元素，所以叫选择排序。</p>
+<p><strong>实现</strong></p>
+<pre><code>public class SelectSort extends Sort&lt;Integer&gt; {
+
+    @Override
+    public void sort(Comparable&lt;Integer&gt;[] a) {
+        int N = a.length;
+        for (int i = 0; i &lt; N; i++) {
+            int min = i;
+            for (int j = i + 1; j &lt; N; j++) {
+                if (less(a[j], a[min])) {
+                    min = j;
+                }
+                exch(a, i, min);
+            }
+        }
+    }
+
+}
+</code></pre><p><strong>测试</strong></p>
+<pre><code>public class Main {
+    public static void main(String[] args) {
+        Integer[] a = new Integer[] { 1, 5, 4, 7, 8, 9, 2, 9, 4, 5, 3, 6, 12, 1, };
+        Sort&lt;Integer&gt; selectSort = new SelectSort();
+        selectSort.sort(a);
+        selectSort.show(a);
+
+    }
+}
+//out:1,2,3,4,4,5,5,7,8,9,9,
+</code></pre><p>在实现的代码之中，外循环遍历整个数组，而内循环就是从i+1位置开始遍历寻找出最小的元素下标，然后将这个最小的元素和a[i]进行交换。交换元素逻辑在内循环外，因此每次的外循环都会发生一次的交换，因此交换的次数是N。算法的时间效率取决于交换次数。</p>
+<ul>
+<li>选择排序的主要优点与数据移动有关。</li>
+<li>对于长度为N的数组，选择排序需要大约N^2/2次比较和N次的交换。</li>
+<li>选择排序有两个简单鲜明的特点:<ul>
+<li>1:运行时间和输入无关。为了找出最小的元素而去扫描整个数据，如果一个数组接近有序的，这几乎是浪费时间。</li>
+<li>2:数据移动最小。每次交换都改变两个元素的值，交换次数和数组长度一致，呈线性关系。</li>
+</ul>
+</li>
+<li>在所有的完全依靠交换去移动元素的排序方法中，选择排序属于非常好的一种。</li>
+</ul>
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p>插入排序（Insertion Sort）是一种简单直观的排序算法。它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。插入排序在实现上，通常采用in-place排序（即只需用到O(1)的额外空间的排序），因而在从后向前扫描过程中，需要反复把已排序元素逐步向后挪位，为最新元素提供插入空间。</p>
+<p>一般来说，插入排序都采用in-place在数组上实现。具体算法描述如下：</p>
+<p>1、从第一个元素开始，该元素可以认为已经被排序</p>
+<p>2、取出下一个元素，在已经排序的元素序列中从后向前扫描</p>
+<p>3、如果该元素（已排序）大于新元素，将该元素移到下一位置</p>
+<p>4、重复步骤3，直到找到已排序的元素小于或者等于新元素的位置</p>
+<p>5、将新元素插入到该位置后</p>
+<p>6、重复步骤2~5</p>
+<p><strong>实现</strong></p>
+<pre><code>public class Insertion extends Sort&lt;Integer&gt; {
+
+    @Override
+    public void sort(Comparable&lt;Integer&gt;[] a) {
+        int N = a.length;
+        for (int i = 0; i &lt; N; i++) {
+            for (int j = i; j &gt; 0 &amp;&amp; less(a[j], a[j - 1]); j--) {
+                exch(a, j, j - 1);
+            }
+        }
+    }
+}
+</code></pre><p><strong>测试</strong></p>
+<pre><code>public class Main {
+    public static void main(String[] args) {
+        Integer[] a = new Integer[] { 1, 5, 4, 7, 8, 9, 2, 9, 4, 5, 3, 6, 12, 1, };
+        Sort&lt;Integer&gt; insertSort = new Insertion();
+        insertSort.sort(a);
+        insertSort.show(a);
+
+    }
+}
+</code></pre><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li>《算法》</li>
+<li>维基百科</li>
+<li>一个好玩的网站：<a href="https://visualgo.net/zh/sorting" target="_blank" rel="noopener">https://visualgo.net/zh/sorting</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构和算法/" rel="tag"># 数据结构和算法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/10/责任链设计模式/" rel="next" title="责任链设计模式">
+                <i class="fa fa-chevron-left"></i> 责任链设计模式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="YangKangJian" />
+            
+              <p class="site-author-name" itemprop="name">YangKangJian</p>
+              <p class="site-description motion-element" itemprop="description">仓廪实而知礼节，衣食足而知荣辱</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初级排序算法"><span class="nav-number">1.</span> <span class="nav-text">初级排序算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备工作"><span class="nav-number">1.1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择排序"><span class="nav-number">1.2.</span> <span class="nav-text">选择排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入排序"><span class="nav-number">1.3.</span> <span class="nav-text">插入排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">2.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YangKangJian</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
