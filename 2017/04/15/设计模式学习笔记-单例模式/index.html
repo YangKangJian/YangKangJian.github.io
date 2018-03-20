@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="HTTP,HTTP协议,协议学习," />
+  <meta name="keywords" content="设计模式," />
 
 
 
@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="今天读了《HTTP权威指南》中的URL与资源这一节，做了以下的总结。">
-<meta name="keywords" content="HTTP,HTTP协议,协议学习">
+<meta name="description" content="单例模式在项目用得最多的了，刚学Java那会，接触的第一个设计模式就是单例设计模式。单例模式比较简单，也比较常用，它是这样的定义的：确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。 单例模式是23个模式中比较简单的模式，应用也非常广泛，在Spring中，每个Bean默认就是单例的，这样做的优点是Spring容器可以管理这些Bean的生命期，决定什么时候创建出来，什么时候销毁，销毁">
+<meta name="keywords" content="设计模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Http协议学习-URL与资源">
-<meta property="og:url" content="http://yoursite.com/2017/01/02/Http协议学习URL与URI/index.html">
+<meta property="og:title" content="设计模式学习笔记-单例模式">
+<meta property="og:url" content="http://yoursite.com/2017/04/15/设计模式学习笔记-单例模式/index.html">
 <meta property="og:site_name" content="YangKangJian Blog">
-<meta property="og:description" content="今天读了《HTTP权威指南》中的URL与资源这一节，做了以下的总结。">
+<meta property="og:description" content="单例模式在项目用得最多的了，刚学Java那会，接触的第一个设计模式就是单例设计模式。单例模式比较简单，也比较常用，它是这样的定义的：确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。 单例模式是23个模式中比较简单的模式，应用也非常广泛，在Spring中，每个Bean默认就是单例的，这样做的优点是Spring容器可以管理这些Bean的生命期，决定什么时候创建出来，什么时候销毁，销毁">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/URL.png">
-<meta property="og:updated_time" content="2018-03-01T02:34:24.051Z">
+<meta property="og:image" content="http://yoursite.com/images/SJMS-DL-1.png">
+<meta property="og:updated_time" content="2018-03-20T02:14:07.930Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Http协议学习-URL与资源">
-<meta name="twitter:description" content="今天读了《HTTP权威指南》中的URL与资源这一节，做了以下的总结。">
-<meta name="twitter:image" content="http://yoursite.com/images/URL.png">
+<meta name="twitter:title" content="设计模式学习笔记-单例模式">
+<meta name="twitter:description" content="单例模式在项目用得最多的了，刚学Java那会，接触的第一个设计模式就是单例设计模式。单例模式比较简单，也比较常用，它是这样的定义的：确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。 单例模式是23个模式中比较简单的模式，应用也非常广泛，在Spring中，每个Bean默认就是单例的，这样做的优点是Spring容器可以管理这些Bean的生命期，决定什么时候创建出来，什么时候销毁，销毁">
+<meta name="twitter:image" content="http://yoursite.com/images/SJMS-DL-1.png">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/01/02/Http协议学习URL与URI/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/15/设计模式学习笔记-单例模式/"/>
 
 
 
 
 
-  <title>Http协议学习-URL与资源 | YangKangJian Blog</title>
+  <title>设计模式学习笔记-单例模式 | YangKangJian Blog</title>
   
 
 
@@ -265,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/02/Http协议学习URL与URI/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/设计模式学习笔记-单例模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YangKangJian">
@@ -282,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Http协议学习-URL与资源</h1>
+          <h1 class="post-title" itemprop="name headline">设计模式学习笔记-单例模式</h1>
         
 
         <div class="post-meta">
@@ -294,8 +294,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-02T14:28:11+08:00">
-                2017-01-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T09:34:33+08:00">
+                2017-04-15
               </time>
             
 
@@ -332,72 +332,48 @@
       
 
       
-        <p>今天读了《HTTP权威指南》中的URL与资源这一节，做了以下的总结。</p>
-<a id="more"></a>
-<h3 id="URL与URI"><a href="#URL与URI" class="headerlink" title="URL与URI"></a>URL与URI</h3><p>URL就是因特网资源的标准化名称。URL指向一条电子信息片段，告诉你它们位于何处，以及如何与之进行交互。</p>
-<p>URI是一类更通用的资源标识符，URL实际上是它的一个子集。URI 是一个通用的<br>概念，由两个主要的子集 URL 和 URN 构成，URL 是通过描述资源的位置来标识资<br>源的，而 URN则是通过名字来识别资源的，与它们当前所处位置无关。</p>
-<h3 id="URL的组成"><a href="#URL的组成" class="headerlink" title="URL的组成"></a>URL的组成</h3><p>1、URL分三部分组成，例如：</p>
-<pre><code>https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png
-</code></pre><ul>
-<li><p>URL 的第一部分（http）是 URL 方案（scheme）。方案可以告知 Web 客户端怎<br>样访问资源。在这个例子中，URL 说明要使用 HTTP 协议。</p>
+        <p>单例模式在项目用得最多的了，刚学Java那会，接触的第一个设计模式就是单例设计模式。单例模式比较简单，也比较常用，它是这样的定义的：确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。</p>
+<p>单例模式是23个模式中比较简单的模式，应用也非常广泛，在Spring中，每个Bean默认就是单例的，这样做的优点是Spring容器可以管理这些Bean的生命期，决定什么时候创建出来，什么时候销毁，销毁的时候要如何处理，等等。</p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p><img src="\images\SJMS-DL-1.png" alt=""></p>
+<pre><code>public class Singleton {   
+    private static Singleton = new Singleton();
+    private Singleton() {}
+    public static getSignleton(){
+        return singleton;
+    }
+}
+</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h3 id="单例模式的优缺点"><a href="#单例模式的优缺点" class="headerlink" title="单例模式的优缺点"></a>单例模式的优缺点</h3><p><strong>优点</strong></p>
+<ul>
+<li><p>由于单例模式在内存中只有一个实例，减少了内存开支，特别是一个对象需要频繁地创建、销毁时，而且创建或销毁时性能又无法优化，单例模式的优势就非常明显。</p>
 </li>
-<li><p>URL 的第二部分（<a href="http://www.google.com）指的是服务器的位置。这部分告知" target="_blank" rel="noopener">www.google.com）指的是服务器的位置。这部分告知</a><br>Web 客户端资源位于何处。</p>
+<li><p>由于单例模式只生成一个实例，所以减少了系统的性能开销，当一个对象的产生需要<br>比较多的资源时，如读取配置、产生其他依赖对象时，则可以通过在应用启动时直接产生一<br>个单例对象，然后用永久驻留内存的方式来解决</p>
 </li>
-<li><p>URL 的第三部分（/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png）是资源路径。路径说明了请求的是<br>服务器上哪个特定的本地资源。</p>
+<li><p>单例模式可以避免对资源的多重占用，例如一个写文件动作，由于只有一个实例存在内存中，避免对同一个资源文件的同时写操作。</p>
+</li>
+<li><p>单例模式可以在系统设置全局的访问点，优化和共享资源访问，例如可以设计一个单例类，负责所有数据表的映射处理。</p>
 </li>
 </ul>
-<p>2、URL提供了一种统一的资源命名方式。大多数 URL 都有同样的：“方案 :// 服务器<br>位置 / 路径”结构。</p>
-<p>3、URL 可以通过 HTTP 之外的其他协议来访问资源。它们可以指向因特网上的任意资<br>源：或者个人的 E-mail 账户：</p>
-<p>mailto:<a href="mailto:president@whitehouse.gov" target="_blank" rel="noopener">president@whitehouse.gov</a></p>
-<p>或者通过其他协议（比如 FTP 协议）访问的各种文件：</p>
-<p><a href="ftp://ftp.lots-o-books.com/pub/complete-price-list.xls" target="_blank" rel="noopener">ftp://ftp.lots-o-books.com/pub/complete-price-list.xls</a></p>
-<p>或者从流视频服务器上下载电影：</p>
-<p>rtsp://<a href="http://www.joes-hardware.com:554/interview/cto_video" target="_blank" rel="noopener">www.joes-hardware.com:554/interview/cto_video</a></p>
-<h2 id="URL语法"><a href="#URL语法" class="headerlink" title="URL语法"></a>URL语法</h2><p>URL 提供了一种定位因特网上任意资源的手段，但这些资源是可以通过各种不同的<br>方案（比如 HTTP、FTP、SMTP）来访问的，因此 URL 语法会随方案的不同而有<br>所不同。</p>
-<p>大多数 URL 方案的 URL 语法都建立在这个由 9 部分构成的通用格式上：</p>
-<pre><code>&lt;scheme&gt;://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;:&lt;port&gt;/&lt;path&gt;;&lt;params&gt;?&lt;query&gt;#&lt;frag&gt;
-</code></pre><p>几乎没有哪个 URL 中包含了所有这些组件。URL 最重要的 3 个部分是方案（scheme）、<br>主机（host）和路径（path）。</p>
-<p><img src="/images/URL.png" alt=""></p>
-<p><strong>1、方案-使用什么协议</strong></p>
-<p>方案实际上是规定如何访问指定资源的主要标识符，它会告诉负责解析 URL 的应用<br>程序应该使用什么协议。如：</p>
-<p>HTTP:</p>
-<pre><code>http://www.baidu.com
-</code></pre><p>FTP:<br>    <a href="ftp://ftp.lots-o-books.com/pub/complete-price-list.xls" target="_blank" rel="noopener">ftp://ftp.lots-o-books.com/pub/complete-price-list.xls</a></p>
-<p>除了常用协议外，还有些定制的协议的URL也是一样的，如JDBC的URL:</p>
-<pre><code>jdbc:mysql://localtion/3306/mydb?useSSL=false
-</code></pre><p><strong>2、主机与端口</strong></p>
-<p>要想在因特网上找到资源，应用程序要知道是哪台机器装载了资源，以及在那台机<br>器的什么地方可以找到能对目标资源进行访问的服务器。URL的主机和端口组件提<br>供了这两组信息。</p>
-<pre><code>http://www.joes-hardware.com:80/index.html
-http://161.58.228.45:80/index.html
-</code></pre><p>可以用主机名或者IP地址来表示主机，通用的协议都有默认的端口，如HTTP是80商品，FTP是21端口，浏览器发起HTTP请求，不填写端口用默认的端口。</p>
-<p><strong>3、用户名和密码</strong></p>
-<p>很多服务器都要求输入用户名和密码才会允许用户访问数据。FTP 服务器就是这样一个常见的实例。如：</p>
-<pre><code>1、ftp://ftp.prep.ai.mit.edu/pub/gnu
-2、ftp://anonymous@ftp.prep.ai.mit.edu/pub/gnu
-3、ftp://anonymous:my_passwd@ftp.prep.ai.mit.edu/pub/gnu
-4、http://joe:joespasswd@www.joes-hardware.com/sales_info.txt
-</code></pre><p>第一个例子没有用户或密码组件，只有标准的方案、主机和路径。如果某应用程序使用的 URL 方案要求输入用户名和密码，比如 FTP，但用户没有提供，<strong>它通常会插入一个默认的用户名和密码。</strong>比如，如果向浏览器提供一个 FTP URL，但没有指定用户名和密码，它就会插入 anonymous（匿名用户）作为你的用户名，并发送一个默认的密码（Internet Explorer 会发送 IEUser，Netscape Navigator 则会发送mozilla）。</p>
-<p>第二个例子显示了一个指定为 anonymous 的用户名。这个用户名与主机组件组合在<br>一起，看起来就像 E-mail 地址一样。字符“@”将用户和密码组件与 URL 的其余<br>部分分隔开来。</p>
-<p>在第三个例子中，指定了用户名（anonymous）和密码（my_passwd），两者之间由<br>字符“:”分隔。</p>
-<p><strong>4、路径</strong></p>
-<p>URL 的路径组件说明了资源位于服务器的什么地方。路径通常很像一个分级的文件系统路径。如：</p>
-<pre><code>http://www.joes-hardware.com:80/seasonal/index-fall.html
-</code></pre><p>这个 URL 中的路径为 /seasonal/index-fall.html，很像 UNIX 文件系统中的文件系统<br>路径。路径是服务器定位资源时所需的信息。每个路径段都有自己的参数（param）组件。</p>
-<p><strong>5、参数</strong></p>
-<p>为了向应用程序提供它们所需的输入参数，以便正确地与服务器进行交互，URL 中有一个参数组件。这个组件就是 URL 中的名值对列表，由字符“;”将其与 URL 的其余部分（以及各名值对）分隔开来。它们为应用程序提供了访问资源所需的所有附加信息。比如：</p>
-<pre><code>ftp://prep.ai.mit.edu/pub/gnu;type=d
-</code></pre><p>在这个例子中，有一个参数 type=d，参数名为 type，值为 d。<br>如前所述，HTTP URL 的路径组件可以分成若干路径段。每段都可以有自己的参<br>数。比如：</p>
-<pre><code>http://www.joes-hardware.com/hammers;sale=false/index.html;graphics=true
-</code></pre><p>这个例子就有两个路径段，hammers 和 index.html。hammers 路径段有参数 sale，其值<br>为 false。index.html 段有参数 graphics，其值为 true。</p>
-<p><strong>6、查询字符串</strong></p>
-<p>很多资源，比如数据库服务，都是可以通过提问题或进行查询来缩小所请求资源类型范围的。</p>
-<pre><code>http://www.joes-hardware.com/inventory-check.cgi?item=12731&amp;color=blue
-</code></pre><p>上面这条URL带有两个查询字符串，item和color，字符串间用&amp;区分开。</p>
-<p><strong>7、片段</strong></p>
-<p>有些资源类型，比如 HTML，除了资源级之外，还可以做进一步的划分。比如，对一个带有章节的大型文本文档来说，资源的 URL 会指向整个文本文档，但理想的情况是，能够指定资源中的那些章节。</p>
-<p>为了引用部分资源或资源的一个片段，URL 支持使用片段（frag）组件来表示一个资源内部的片段。比如，URL可以指向HTML文档中一个特定的图片或小节。片段挂在 URL 的右手边，最前面有一个字符“#”。比如：</p>
-<pre><code>http://www.joes-hardware.com/tools.html#drills
-</code></pre><p>HTTP 服务器通常只处理整个对象，而不是对象的片段，客户端不能将片段传送给服务器。浏览器从服务器获得了整个资源之后，会根据片段来显示你感兴趣的那部分资源。</p>
+<p><strong>单例模式的缺点</strong></p>
+<ul>
+<li><p>单例模式一般没有接口，扩展很困难，若要扩展，除了修改代码基本上没有第二种途径可以实现。单例模式为什么不能增加接口呢？因为接口对单例模式是没有任何意义的，它要求“自行实例化”，并且提供单一实例、接口或抽象类是不可能被实例化的。当然，在特殊情况下，单例模式可以实现接口、被继承等，需要在系统开发中根据环境判断。</p>
+</li>
+<li><p>单例模式对测试是不利的。在并行开发环境中，如果单例模式没有完成，是不能进行测试的，没有接口也不能使用mock的方式虚拟一个对象。</p>
+</li>
+<li><p>单例模式与单一职责原则有冲突。一个类应该只实现一个逻辑，而不关心它是否是单例的，是不是要单例取决于环境，单例模式把“要单例”和业务逻辑融合在一个类中。</p>
+</li>
+</ul>
+<p><strong>使用场景</strong></p>
+<p>在一个系统中，要求一个类有且仅有一个对象，如果出现多个对象就会出现“不良反<br>应”，可以采用单例模式，具体的场景如下：</p>
+<ul>
+<li><p>要求生成唯一序列号的环境；</p>
+</li>
+<li><p>在整个项目中需要一个共享访问点或共享数据，例如一个Web页面上的计数器，可以不用把每次刷新都记录到数据库中，使用单例模式保持计数器的值，并确保是线程安全的；</p>
+</li>
+<li><p>创建一个对象需要消耗的资源过多，如要访问IO和数据库等资源；</p>
+</li>
+<li><p>需要定义大量的静态常量和静态方法（如工具类）的环境，可以采用单例模式（当<br>然，也可以直接声明为static的方式）。</p>
+</li>
+</ul>
 
       
     </div>
@@ -415,11 +391,7 @@ http://161.58.228.45:80/index.html
       
         <div class="post-tags">
           
-            <a href="/tags/HTTP/" rel="tag"># HTTP</a>
-          
-            <a href="/tags/HTTP协议/" rel="tag"># HTTP协议</a>
-          
-            <a href="/tags/协议学习/" rel="tag"># 协议学习</a>
+            <a href="/tags/设计模式/" rel="tag"># 设计模式</a>
           
         </div>
       
@@ -432,14 +404,18 @@ http://161.58.228.45:80/index.html
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/04/12/设计模式学习笔记-模板方法/" rel="next" title="设计模式学习笔记-模板方法">
+                <i class="fa fa-chevron-left"></i> 设计模式学习笔记-模板方法
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/01/05/Http协议学习-HTTP报文(一)/" rel="prev" title="Http协议学习-HTTP报文（一）">
-                Http协议学习-HTTP报文（一） <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/01/算法-数据结构学习-初级排序算法/" rel="prev" title="算法&数据结构学习-初级排序算法">
+                算法&数据结构学习-初级排序算法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -567,7 +543,7 @@ http://161.58.228.45:80/index.html
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#URL与URI"><span class="nav-number">1.</span> <span class="nav-text">URL与URI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#URL的组成"><span class="nav-number">2.</span> <span class="nav-text">URL的组成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#URL语法"><span class="nav-number"></span> <span class="nav-text">URL语法</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#例子"><span class="nav-number">1.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单例模式的优缺点"><span class="nav-number">2.1.</span> <span class="nav-text">单例模式的优缺点</span></a></li></ol></li></ol></div>
             
 
           </div>
