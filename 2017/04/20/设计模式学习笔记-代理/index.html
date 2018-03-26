@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="数据库," />
+  <meta name="keywords" content="设计模式," />
 
 
 
@@ -79,18 +79,22 @@
 
 
 
-<meta name="description" content="基本概念数据库事务（简称：事务）是数据库管理系统执行过程中的一个逻辑单位，由一个有限的数据库操作序列构成。简单来说，一个事务是可以被看作一个单元的一系列SQL语句的集合。 一个数据库事务通常包含了一个序列的对数据库的读/写操作。它的存在包含有以下两个目的： 为数据库操作序列提供了一个从失败中恢复到正常状态的方法，同时提供了数据库即使在异常状态下仍能保持一致性的方法。当多个应用程序在并发访问数据库时">
-<meta name="keywords" content="数据库">
+<meta name="description" content="代理设计模式，重要，常用，玩低级一点就静态代理，高级一点就动态代理。今天在看设计模式之禅这本书中的代理设计模式，简单做下代理模式的笔记。 例子设计模式之禅用游戏代练这个例子为切入点来讲述代理设计模式。 一个玩家玩游戏:  定义了三个方法，分别是我们在网络游戏中最常用的功能：登录游戏、杀怪和升级 public interface IGamePlayer {      //登录游戏     publi">
+<meta name="keywords" content="设计模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据库事务笔记">
-<meta property="og:url" content="http://yoursite.com/2017/03/08/数据库事务笔记/index.html">
+<meta property="og:title" content="设计模式学习笔记-代理一">
+<meta property="og:url" content="http://yoursite.com/2017/04/20/设计模式学习笔记-代理/index.html">
 <meta property="og:site_name" content="YangKangJian Blog">
-<meta property="og:description" content="基本概念数据库事务（简称：事务）是数据库管理系统执行过程中的一个逻辑单位，由一个有限的数据库操作序列构成。简单来说，一个事务是可以被看作一个单元的一系列SQL语句的集合。 一个数据库事务通常包含了一个序列的对数据库的读/写操作。它的存在包含有以下两个目的： 为数据库操作序列提供了一个从失败中恢复到正常状态的方法，同时提供了数据库即使在异常状态下仍能保持一致性的方法。当多个应用程序在并发访问数据库时">
+<meta property="og:description" content="代理设计模式，重要，常用，玩低级一点就静态代理，高级一点就动态代理。今天在看设计模式之禅这本书中的代理设计模式，简单做下代理模式的笔记。 例子设计模式之禅用游戏代练这个例子为切入点来讲述代理设计模式。 一个玩家玩游戏:  定义了三个方法，分别是我们在网络游戏中最常用的功能：登录游戏、杀怪和升级 public interface IGamePlayer {      //登录游戏     publi">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-06T06:00:37.720Z">
+<meta property="og:image" content="http://yoursite.com/images/SJMS-DLMS-1.png">
+<meta property="og:image" content="http://yoursite.com/images/SJMS-DLMS-2.png">
+<meta property="og:image" content="http://yoursite.com/images/SJMS-DLMS-3.png">
+<meta property="og:updated_time" content="2018-03-26T03:28:35.222Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据库事务笔记">
-<meta name="twitter:description" content="基本概念数据库事务（简称：事务）是数据库管理系统执行过程中的一个逻辑单位，由一个有限的数据库操作序列构成。简单来说，一个事务是可以被看作一个单元的一系列SQL语句的集合。 一个数据库事务通常包含了一个序列的对数据库的读/写操作。它的存在包含有以下两个目的： 为数据库操作序列提供了一个从失败中恢复到正常状态的方法，同时提供了数据库即使在异常状态下仍能保持一致性的方法。当多个应用程序在并发访问数据库时">
+<meta name="twitter:title" content="设计模式学习笔记-代理一">
+<meta name="twitter:description" content="代理设计模式，重要，常用，玩低级一点就静态代理，高级一点就动态代理。今天在看设计模式之禅这本书中的代理设计模式，简单做下代理模式的笔记。 例子设计模式之禅用游戏代练这个例子为切入点来讲述代理设计模式。 一个玩家玩游戏:  定义了三个方法，分别是我们在网络游戏中最常用的功能：登录游戏、杀怪和升级 public interface IGamePlayer {      //登录游戏     publi">
+<meta name="twitter:image" content="http://yoursite.com/images/SJMS-DLMS-1.png">
 
 
 
@@ -120,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/08/数据库事务笔记/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/20/设计模式学习笔记-代理/"/>
 
 
 
 
 
-  <title>数据库事务笔记 | YangKangJian Blog</title>
+  <title>设计模式学习笔记-代理一 | YangKangJian Blog</title>
   
 
 
@@ -263,7 +267,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/08/数据库事务笔记/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/20/设计模式学习笔记-代理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YangKangJian">
@@ -280,7 +284,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">数据库事务笔记</h1>
+          <h1 class="post-title" itemprop="name headline">设计模式学习笔记-代理一</h1>
         
 
         <div class="post-meta">
@@ -292,8 +296,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-08T12:13:32+08:00">
-                2017-03-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-20T10:44:44+08:00">
+                2017-04-20
               </time>
             
 
@@ -330,29 +334,183 @@
       
 
       
-        <h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>数据库事务（简称：事务）是数据库管理系统执行过程中的一个逻辑单位，由一个有限的数据库操作序列构成。简单来说，一个事务是可以被看作一个单元的一系列SQL语句的集合。</p>
-<p>一个数据库事务通常包含了一个序列的对数据库的读/写操作。它的存在包含有以下两个目的：</p>
-<p>为数据库操作序列提供了一个从失败中恢复到正常状态的方法，同时提供了数据库即使在异常状态下仍能保持一致性的方法。当多个应用程序在并发访问数据库时，可以在这些应用程序之间提供一个隔离方法，以防止彼此的操作互相干扰。当事务被提交给了DBMS（数据库管理系统），则DBMS（数据库管理系统）需要确保该事务中的所有操作都成功完成且其结果被永久保存在数据库中，如 果事务中有的操作没有成功完成，则事务中的所有操作都需要被回滚，回到 事务执行前的状态;同时，该事务对数据库或者其他事务的执行无影响，所有的事务都好像在独立的运行。</p>
-<p>但在现实情况下，失败的风险很高。在一个数据库事务的执行过程中，有可能会遇上事务操作失败、数据库系统/操作系统失败，甚至是存储介质失败等情况。这便需要DBMS对一个执行失败的事务执行恢复操作，将其数据库状态恢复到一致状态（数据的一致性得到保证的状态）。为了实现将数据库 状态恢复到一致状态的功能，DBMS通常需要维护事务日志以追踪事务中所有影响数据库数据的操作</p>
-<h1 id="四大特性-ACID"><a href="#四大特性-ACID" class="headerlink" title="四大特性(ACID)"></a>四大特性(ACID)</h1><h2 id="原子性-Atomicity"><a href="#原子性-Atomicity" class="headerlink" title="原子性(Atomicity)"></a>原子性(Atomicity)</h2><p>指的是事务是一个不可分割的工作单位，事务的操作要么都发生，要么都不 发生</p>
-<h2 id="一致性-Consistency"><a href="#一致性-Consistency" class="headerlink" title="一致性(Consistency)"></a>一致性(Consistency)</h2><p>事务前后的数据完整性必须保持一致</p>
-<h2 id="隔离性-Isolation"><a href="#隔离性-Isolation" class="headerlink" title="隔离性(Isolation)"></a>隔离性(Isolation)</h2><p>事务的隔离性是指多个用户并发访问数据库时，一个用户的事务不能被其他的用户事务所干扰，多个并发事务之间数据要相互隔离</p>
-<p>多个线程开各自事务操作数据库中的数据时，数据加系统要负责隔离操作，以保证各个线程在获取数据时的准确性</p>
-<p>3.如不考虑隔离性，可能会引发如下的问题:</p>
-<h3 id="脏读"><a href="#脏读" class="headerlink" title="脏读"></a>脏读</h3><p><strong>指上事务读取了另外一个事务未提交的数据。</strong>这个是非常之危险的，假设 A向B转账100000元，对应的SQL语句是：</p>
-<p>update account set money=money+100000 while name=’b’</p>
-<p>update account set money=money-100000 while name=’a’</p>
-<p>当第一条SQL执行完成后，第2条还没有执行(A没有提交时)，如果此时B查询自己的帐户，就会发现自己多了100000元钱。如果A等B走后再进行事务的回滚，这个时候B就会损失100000元！这个是因为这个B开一个事务去读了那个A事务还没有提交的数据所造成的！</p>
-<h3 id="不可重复读"><a href="#不可重复读" class="headerlink" title="不可重复读"></a>不可重复读</h3><p><strong>指在一个事务内读取表中的某一行数据，多次读取结果不同。(一个事务读取到的另外一个事务提交的数据)</strong></p>
-<p>举一个简单的例子，就是中央人银行每个月的月底都会生成这一个月的一个财务报表，这个时候就开启一个事务生成了A报表和B报表分别送给这个总理和主席，但A报表和B报表之间有储存业务的产生，这个时候B报表生成的总额和A报表生成的总额是不一样的。就是因为这个事务读取了另外一个事务提交的数据了！这种情况有时候好，但有时候就出问题了！</p>
-<h3 id="虚读-幻读"><a href="#虚读-幻读" class="headerlink" title="虚读(幻读)"></a>虚读(幻读)</h3><p><strong>指在一个事务内读取到了别的事务插入的数据，导致前后不一致。</strong>这个和不可重复读不一样，不可重复读是指某一行的数据，这个是指整个表的数据，第一次读有100条数据，但第二次读就出现了200条数据，前后读取是不一致的问题出现了！这种情况和不可重复读影响都是一样的，有时候好，但有时候就出问题了。</p>
-<h3 id="数据库定义了四种的隔离级别"><a href="#数据库定义了四种的隔离级别" class="headerlink" title="数据库定义了四种的隔离级别"></a>数据库定义了四种的隔离级别</h3><p>1）Serializable :可避免脏读、不可重复读、虚读的发生。(串行化，这个 是性能最差的，是单线程的操作!就是有一个事务在进行，那个事务还没有commit的时候，这个事务作任务操作都不能，都必需要等到那个事务commit时候才能进行！)</p>
-<p>2）Repeatable read : 可避免脏读、不可重复读的情况发生。(可重复读)</p>
-<p>3）Read committed : 可避免脏读情况发生。(读已提交)</p>
-<p>4）Read uncommitted :最低的级别，以上情况均无法保证。(读未提交)</p>
-<p>这四种隔离的级别越往上性能就越低！可根据需求调整！</p>
-<p>在MySQL可以通过set transaction isolation level 设置事务隔离级别，select @@tx_isolation 查询当前事务隔离级别</p>
-<h2 id="持久性-Durability"><a href="#持久性-Durability" class="headerlink" title="持久性(Durability)"></a>持久性(Durability)</h2><p>持久性是指一个事务一旦被提交，它对数据库中的数据的改变就是永久性的 ，接下来她即使数据库发生故障也不应该对其有任何的影响！</p>
+        <p>代理设计模式，重要，常用，玩低级一点就静态代理，高级一点就动态代理。今天在看设计模式之禅这本书中的代理设计模式，简单做下代理模式的笔记。</p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>设计模式之禅用游戏代练这个例子为切入点来讲述代理设计模式。</p>
+<p>一个玩家玩游戏:</p>
+<p><img src="\images\SJMS-DLMS-1.png" alt=""></p>
+<p>定义了三个方法，分别是我们在网络游戏中最常用的功能：登录游戏、杀怪<br>和升级</p>
+<pre><code>public interface IGamePlayer {
+
+    //登录游戏
+    public void login(String user,String password);
+
+    //杀怪，网络游戏的主要特色
+    public void killBoss();
+
+    //升级
+    public void upgrade();
+}
+</code></pre><p>一个玩家的实现类:</p>
+<pre><code>public class GamePlayer implements IGamePlayer {
+    private String name = &quot;&quot;;
+
+    //通过构造函数传递名称
+    public GamePlayer(String name){
+        this.name = name;
+    }
+
+    //打怪，最期望的就是杀老怪
+    public void killBoss() {
+        System.out.println(this.name + &quot;在打怪！&quot;);
+    }
+
+    //进游戏之前你肯定要登录吧，这是一个必要条件
+    public void login(String user, String password) {
+        System.out.println(&quot;登录名为&quot;+user+&quot;的用户&quot;+this.name+&quot;登录成功！&quot;);
+    }
+
+    //升级，升级有很多方法，花钱买是一种，做任务也是一种
+    public void upgrade() {
+        System.out.println(this.name + &quot; 又升了一级！&quot;);
+    }
+}
+</code></pre><p>场景:</p>
+<pre><code>public class Client {
+    public static void main(String[] args) {
+
+        //定义一个痴迷的玩家
+        IGamePlayer player = new GamePlayer(&quot;张三&quot;);
+
+        //开始打游戏，记下时间戳
+        System.out.println(&quot;开始时间是：2009-8-25 10:45&quot;);
+
+        player.login(&quot;zhangSan&quot;, &quot;password&quot;);
+
+        //开始杀怪
+        player.killBoss();
+
+        //升级
+        player.upgrade();
+
+        //记录结束游戏时间
+        System.out.println(&quot;结束时间是：2009-8-26 03:40&quot;);
+    }
+}
+</code></pre><p>但由于该玩家日玩夜玩，都敌不过RMB玩家，而且又想尽快去升级，而又不想玩时间去练级。于是用到了代练。</p>
+<p><strong>用代理</strong></p>
+<p><img src="\images\SJMS-DLMS-2.png" alt=""></p>
+<p>在类图中增加了一个GamePlayerProxy类来代表游戏代练者，因此同样继承IGamePlayer接口。</p>
+<pre><code>public class GamePlayerProxy implements IGamePlayer {
+
+    private IGamePlayer gamePlayer = null;
+
+    //通过构造函数传递要对谁进行代练
+    public GamePlayerProxy(IGamePlayer gamePlayer){
+        this.gamePlayer = gamePlayer;
+    }
+
+    //代练杀怪
+    public void killBoss() {
+        this.gamePlayer.killBoss();
+    }
+
+    //代练登录
+    public void login(String user, String password) {
+        this.gamePlayer.login(user, password);
+    }
+
+    //代练升级
+    public void upgrade() {
+        this.gamePlayer.upgrade();
+    }
+}
+</code></pre><p>场景:</p>
+<pre><code>public class Client {
+    public static void main(String[] args) {
+
+    //定义一个痴迷的玩家
+    IGamePlayer player = new GamePlayer(&quot;张三&quot;);
+
+    //然后再定义一个代练者
+    IGamePlayer proxy = new GamePlayerProxy(player);
+
+    //开始打游戏，记下时间戳
+    System.out.println(&quot;开始时间是：2009-8-25 10:45&quot;);
+
+    proxy.login(&quot;zhangSan&quot;, &quot;password&quot;);
+
+    //开始杀怪
+    proxy.killBoss();
+
+    //升级
+    proxy.upgrade();
+
+    //记录结束游戏时间
+    System.out.println(&quot;结束时间是：2009-8-26 03:40&quot;);
+    }
+}
+</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>代理模式（Proxy Pattern）是一个使用率非常高的模式，其定义如下：<strong>为其他对象提供<br>一种代理以控制对这个对象的访问。</strong></p>
+<p>基本设计类图:</p>
+<p><img src="\images\SJMS-DLMS-3.png" alt=""></p>
+<p>代理模式也叫做委托模式，它是一项基本设计技巧。许多其他的模式，如状态模式、策<br>略模式、访问者模式本质上是在更特殊的场合采用了委托模式，而且在日常的应用中，代理<br>模式可以提供非常好的访问控制。在一些框架可以看到他的身影，如Spring，Struts</p>
+<ul>
+<li>Subject抽象主题角色</li>
+</ul>
+<p>抽象主题类可以是抽象类也可以是接口，是一个最普通的业务类型定义，无特殊要求。</p>
+<ul>
+<li>RealSubject具体主题角色</li>
+</ul>
+<p>也叫做被委托角色、被代理角色。它才是冤大头，是业务逻辑的具体执行者。</p>
+<ul>
+<li>Proxy代理主题角色</li>
+</ul>
+<p>也叫做委托类、代理类。它负责对真实角色的应用，把所有抽象主题类定义的方法限制<br>委托给真实主题角色实现，并且在真实主题角色处理完毕前后做预处理和善后处理工作。</p>
+<p>Subject抽象主题类的通用源码：</p>
+<p>抽象主题类:</p>
+<pre><code>public interface Subject {
+    //定义一个方法
+    public void request();
+}
+</code></pre><p>在接口中我们定义了一个方法request来作为方法的代表，RealSubject对它进行实现</p>
+<p>真实主题类:</p>
+<pre><code>public class RealSubject implements Subject {
+
+    //实现方法
+    public void request() {
+        //业务逻辑处理
+    }
+}
+</code></pre><p>RealSubject是一个正常的业务实现类，代理模式的核心就在代理类上</p>
+<p>代理类：</p>
+<pre><code>public class Proxy implements Subject {
+
+    //要代理哪个实现类
+    private Subject subject = null;
+
+    //通过构造函数传递代理者
+    public Proxy(Subject stubject ){
+        this.subject=stubject;
+    }
+
+    //实现接口中定义的方法
+    public void request() {
+        this.before();
+        this.subject.request();
+        this.after();
+    }
+
+    //预处理
+    private void before(){
+        //do something
+    }
+
+    //善后处理
+    private void after(){
+        //do something
+    }
+}
+</code></pre><p>最简单的情况就是一个主题类和一个代理类，这是最简洁的代理模式。在通常情况下，一个接口只需要一个代理类就可以了，具体代理哪个实现类由高层模块来决定，也就是在代理类的构造函数中传递被代理者.</p>
+<p>代理模式大概是这样的，但代理却不止于这么简单的实现，还有动态代理等这样的高级玩法。</p>
 
       
     </div>
@@ -370,7 +528,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/数据库/" rel="tag"># 数据库</a>
+            <a href="/tags/设计模式/" rel="tag"># 设计模式</a>
           
         </div>
       
@@ -383,8 +541,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/05/JVM学习笔记-JVM运行时内存模型/" rel="next" title="JVM学习笔记(1)-JVM运行时内存模型">
-                <i class="fa fa-chevron-left"></i> JVM学习笔记(1)-JVM运行时内存模型
+              <a href="/2017/04/15/设计模式学习笔记-单例模式/" rel="next" title="设计模式学习笔记-单例模式">
+                <i class="fa fa-chevron-left"></i> 设计模式学习笔记-单例模式
               </a>
             
           </div>
@@ -393,8 +551,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/20/MySQL数据类型/" rel="prev" title="MySQL数据常用类型记录">
-                MySQL数据常用类型记录 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/01/算法-数据结构学习-初级排序算法/" rel="prev" title="算法&数据结构学习-初级排序算法">
+                算法&数据结构学习-初级排序算法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -522,7 +680,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本概念"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四大特性-ACID"><span class="nav-number">2.</span> <span class="nav-text">四大特性(ACID)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原子性-Atomicity"><span class="nav-number">2.1.</span> <span class="nav-text">原子性(Atomicity)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一致性-Consistency"><span class="nav-number">2.2.</span> <span class="nav-text">一致性(Consistency)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#隔离性-Isolation"><span class="nav-number">2.3.</span> <span class="nav-text">隔离性(Isolation)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#脏读"><span class="nav-number">2.3.1.</span> <span class="nav-text">脏读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不可重复读"><span class="nav-number">2.3.2.</span> <span class="nav-text">不可重复读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚读-幻读"><span class="nav-number">2.3.3.</span> <span class="nav-text">虚读(幻读)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库定义了四种的隔离级别"><span class="nav-number">2.3.4.</span> <span class="nav-text">数据库定义了四种的隔离级别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#持久性-Durability"><span class="nav-number">2.4.</span> <span class="nav-text">持久性(Durability)</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#例子"><span class="nav-number">1.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
