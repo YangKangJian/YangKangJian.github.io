@@ -9,16 +9,16 @@
 </head>
 
 <body>
-    <h1>捞天下成立时间:<span id="create">2014年10月05日</span></h1>
-    <h1>捞天下已经成立:<span id="toNow"></span></h1>
-    <h1>距离捞天下五周年兴还有:<span id="Yes"></span></h1>
+    <h2>捞天下成立时间:<span id="create">2014年10月05日</span></h2>
+    <h2>捞天下已经成立:<span id="toNow"></span></h2>
+    <h2>距离捞天下五周年兴还有:<span id="Yes"></span></h2>
     <script>
         var cd = new Date('2014,10,05');
         var target=new Date('2019,10,05');
         window.onload = function () {
         }
         setInterval(function () {
-            var g = Math.floor((new Date().getTime() - cd.getTime()) / (24 * 3600 * 1000))
+            var g = Math.floor((new Date().getTime() - cd.getTime()) / (24 * 3600 * 1000))+'天'
             document.getElementById("toNow").innerText = g;
             console.log(g);
 
