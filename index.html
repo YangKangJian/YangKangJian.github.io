@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>工作流</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+  <meta content="telephone=no" name="format-detection">
+  <meta name="renderer" content="webkit">
+  <link rel="stylesheet" href="umi.89a66bb3.css">
+  <script src="vue.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="e2ad37a4.chunk.css">
+  <link rel="stylesheet" type="text/css" href="90048744.chunk.css">
+  <link rel="stylesheet" type="text/css" href="f07664a1.chunk.css">
+  <link rel="stylesheet" type="text/css" href="26837eee.chunk.css">
+  <link rel="stylesheet" type="text/css" href="3df84014.chunk.css">
+
+  <!-- 引入样式 -->
+  <link rel="stylesheet" href="index.css">
+  <!-- 引入组件库 -->
+  <script src="index.js"></script>
+
+  <style type="text/css">
+    @-webkit-keyframes rotation {
+      from {
+        -webkit-transform: rotate(0deg);
+      }
+
+      to {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    .hx-detail-statusIcon2 {
+      position: fixed;
+      right: 15px;
+      top: 10px;
+      width: 92px;
+      z-index: 99;
+      -webkit-transform: rotate(360deg);
+      animation: rotation 10s linear infinite;
+      -moz-animation: rotation 10s linear infinite;
+      -webkit-animation: rotation 10s linear infinite;
+      -o-animation: rotation 10s linear infinite
+    }
+  </style>
+</head>
+
+<body>
+  <img class="hx-detail-statusIcon2" src="initiate-2.0a5010df.png">
+  <div id="app">
+    <el-tabs tab-position="bottom" style="height: auto;">
+      <el-tab-pane label="A">
+        <div>
+          <div class="box___2rfcK">
+            <div class="hx-layout">
+              <main class="hx-content">
+                <div class="wfTitle___Y-ebx">{{formData.name}}的请假条</div>
+                <div class="hx-detail">
+                  <div class="hx-title-detail">
+                    <div class="hx-title-detail-dot"></div>申请人
+                  </div>
+                  <div class="hx-detail-content">
+                    <div class="am-accordion hx-detail-accordion">
+                      <div class="am-accordion-item am-accordion-item-active">
+                        <div class="am-accordion-header" role="button" tabindex="0" aria-expanded="true">
+                          <i v-on:click="open" class="arrow"></i>
+                          <div class="hx-detail-item" v-on:click="open">
+                            <span class="hx-detail-item-label">姓名</span>
+                            <div class="hx-detail-item-field">
+                              <div class="am-flexbox am-flexbox-justify-start am-flexbox-align-center">
+                                {{formData.main_name}}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="am-accordion-content am-accordion-content-active"
+                          v-bind:style="{height: box_size+'px'}">
+                          <div class="am-accordion-content-box">
+                            <div class="hx-detail-item"><span class="hx-detail-item-label">学号</span>
+                              <div class="hx-detail-item-field">{{formData.num}}</div>
+                            </div>
+                            <div class="hx-detail-item"><span class="hx-detail-item-label">性别</span>
+                              <div class="hx-detail-item-field">男</div>
+                            </div>
+                            <div class="hx-detail-item"><span class="hx-detail-item-label">学院</span>
+                              <div class="hx-detail-item-field"></div>
+                            </div>
+                            <div class="hx-detail-item"><span class="hx-detail-item-label">系</span>
+                              <div class="hx-detail-item-field">{{formData.dept_1}} </div>
+                            </div>
+                            <div class="hx-detail-item"><span class="hx-detail-item-label">专业</span>
+                              <div class="hx-detail-item-field">{{formData.dept_2}}</div>
+                            </div>
+                            <div class="hx-detail-item"><span class="hx-detail-item-label">专业方向</span>
+                              <div class="hx-detail-item-field"></div>
+                            </div>
+                            <div class="hx-detail-item"><span class="hx-detail-item-label">班级</span>
+                              <div class="hx-detail-item-field">{{formData.dept_3}}</div>
+                            </div>
+                            <div class="hx-detail-item"><span class="hx-detail-item-label">年级</span>
+                              <div class="hx-detail-item-field">2021</div>
+                            </div>
+                            <div class="hx-detail-item"><span class="hx-detail-item-label">教育层级</span>
+                              <div class="hx-detail-item-field">专科</div>
+                            </div>
+                            <div class="hx-detail-item"><span class="hx-detail-item-label">学制</span>
+                              <div class="hx-detail-item-field">3.0</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="hx-detail">
+                  <div class="hx-title-detail">
+                    <div class="hx-title-detail-dot"></div>请假信息
+                  </div>
+                  <div class="hx-detail-content">
+                    <div class="hx-detail-item"><span class="hx-detail-item-label">是否补假</span>
+                      <div class="hx-detail-item-field">是</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="hx-detail">
+                  <div class="hx-title-detail">
+                    <div class="hx-title-detail-dot"></div>
+                    <div class="am-flexbox am-flexbox-justify-between am-flexbox-align-center" style="flex-grow: 1;">
+                      申请内容
+                      <div class="am-flexbox am-flexbox-justify-center am-flexbox-align-center"></div>
+                    </div>
+                  </div>
+                  <div class="hx-detail-content">
+                    <div class="hx-detail-item"><span class="hx-detail-item-label">审批编号</span>
+                      <div class="hx-detail-item-field">{{formData.applyNum}}</div>
+                    </div>
+                    <div class="hx-detail-item"><span class="hx-detail-item-label">辅导员姓名</span>
+                      <div class="hx-detail-item-field">{{formData.teacher}}</div>
+                    </div>
+                    <div class="hx-detail-item"><span class="hx-detail-item-label">离校类型</span>
+                      <div class="hx-detail-item-field">事假</div>
+                    </div>
+                    <div class="hx-detail-item"><span class="hx-detail-item-label">离校具体原因</span>
+                      <div class="hx-detail-item-field">去医院看病</div>
+                    </div>
+                    <div class="hx-detail-item"><span class="hx-detail-item-label">离校去向（含途径地区）</span>
+                      <div class="hx-detail-item-field">佛山</div>
+                    </div>
+                    <div class="hx-detail-item"><span class="hx-detail-item-label">交通方式</span>
+                      <div class="hx-detail-item-field">自驾（含网约车）</div>
+                    </div>
+                    <div class="hx-detail-item"><span class="hx-detail-item-label">目的地是否为疫情风险地区</span>
+                      <div class="hx-detail-item-field">否</div>
+                    </div>
+                    <div class="hx-detail-item"><span class="hx-detail-item-label">开始时间</span>
+                      <div class="hx-detail-item-field">{{formData.st_time}}</div>
+                    </div>
+                    <div class="hx-detail-item"><span class="hx-detail-item-label">结束时间</span>
+                      <div class="hx-detail-item-field">{{formData.et_time}}</div>
+                    </div>
+                    <div class="hx-detail-item"><span class="hx-detail-item-label">时长</span>
+                      <div class="hx-detail-item-field">2.21</div>
+                    </div>
+                    <div class="hx-detail-item"><span class="hx-detail-item-label">目的地详细地址</span>
+                      <div class="hx-detail-item-field">医院</div>
+                    </div>
+                    <div class="hx-detail-item"><span class="hx-detail-item-label">地区选择</span>
+                      <div class="hx-detail-item-field">广东省佛山市南海区</div>
+                    </div>
+                    <div class="hx-detail-item"><span class="hx-detail-item-label">请假材料</span>
+                      <div class="hx-detail-item-field">
+                        <div class="hx-detail-image"></div>
+                      </div>
+                    </div>
+                    <div class="hx-detail-item"><span class="hx-detail-item-label">校医是否同意（病假必填）</span>
+                      <div class="hx-detail-item-field"></div>
+                    </div>
+                    <div class="hx-detail-item"><span class="hx-detail-item-label">本人联系电话</span>
+                      <div class="hx-detail-item-field">15384497406</div>
+                    </div>
+                    <div class="hx-detail-item"><span class="hx-detail-item-label">紧急联系人（家长姓名）</span>
+                      <div class="hx-detail-item-field">{{formData.parent_name}}</div>
+                    </div>
+                    <div class="hx-detail-item"><span class="hx-detail-item-label">紧急联系电话（家长电话）</span>
+                      <div class="hx-detail-item-field">13650334835</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="hx-detail flowInfo___244V-">
+                  <div class="hx-title-detail">
+                    <div class="hx-title-detail-dot"></div>审批进度
+                  </div>
+                  <div class="hx-detail-content">
+                    <div class="flownode___1GTd6 node2___1yk73">
+                      <div class="nodestate___Npp7u"><span>通过</span><span class="stateTime___2bJzR">16:00</span></div>
+                      <div class="nodeleft___2q7Sg"><span class="nodeindex___Cya0J">1</span></div>
+                      <div class="noderight___urUWJ">
+                        <div class="nodeapprover___1KJaE" style="margin-top: 0px;">
+                          <div>
+                            <div>{{formData.teacher}}<span class="workTime___PJH95">16:00</span>
+                            </div>
+                            <div class="approverOpinion___3xcsE"><span style="color: rgb(135, 208, 104);">已同意</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flownode___1GTd6">
+                      <div class="nodeend___sR2u9"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="hx-detail">
+                  <div class="hx-title-detail">
+                    <div class="hx-title-detail-dot"></div>已抄送
+                  </div>
+                  <div class="hx-detail-content">
+                    <div class="ccInfo___T7Slb">
+                      <div>刘敏(15013)</div>
+                    </div>
+                  </div>
+                </div>
+              </main>
+            </div>
+          </div>
+        </div>
+      </el-tab-pane>
+      <el-tab-pane label="B">
+        <div style="margin-top: 10px;">
+          <el-form :label-position="labelPosition" label-width="80px" size="mini" :model="formData">
+            <el-form-item label="姓名">
+              <el-input v-model="formData.name"></el-input>
+            </el-form-item>
+            <el-form-item label="辅导员">
+              <el-input v-model="formData.teacher"></el-input>
+            </el-form-item>
+            <el-form-item label="系">
+              <el-input v-model="formData.dept_1"></el-input>
+            </el-form-item>
+            <el-form-item label="专业">
+              <el-input v-model="formData.dept_2"></el-input>
+            </el-form-item>
+            <el-form-item label="班级">
+              <el-input v-model="formData.dept_3"></el-input>
+            </el-form-item>
+            <el-form-item label="开始时间">
+              <el-input v-model="formData.st_time"></el-input>
+            </el-form-item>
+            <el-form-item label="结束时间">
+              <el-input v-model="formData.et_time"></el-input>
+            </el-form-item>
+          </el-form>
+        </div>
+      </el-tab-pane>
+    </el-tabs>
+  </div>
+
+</body>
+<script>
+  var app = new Vue({
+    el: '#app',
+    methods: {
+      getDept1: function () {
+        var depts = new Array("戏剧系", "舞蹈系", "音乐系", "艺术设计系", "社会文化系", "文化创意系");
+        return depts[(Math.floor(Math.random() * depts.length))]
+      },
+      getDept2: function () {
+        var depts = new Array("音乐表演", "舞蹈表演", "戏曲表演", "戏剧影视表演", "舞台艺术设计与制作", "音乐教育", "现代流行音乐", "音乐制作");
+        return depts[(Math.floor(Math.random() * depts.length))]
+      },
+      getTeacherName: function () {
+        var names = new Array(
+          "苏月", "丁小琴", "叶雅", "谢佳庆", "陈永辉", "李丽", "冯婷", "陈思思", "王晓燕", "李佳慧"
+        );
+        return names[(Math.floor(Math.random() * names.length))];
+      },
+      getFirstName: function () {
+        var familyNames = new Array(
+          "赵", "钱", "孙", "李", "周", "吴", "郑", "王", "冯", "陈", "王", "谢"
+        );
+        var familyName = familyNames[(Math.floor(Math.random() * 10))];
+        return familyName;
+      },
+      getName: function () {
+        var familyNames = new Array(
+          "赵子华", "杨康帝", "李华", "张一名", "马飞", "李一博", "杨子昂", "陈光辉", "张志行", "陈子凌", "李华龙", "杨五杨"
+
+        );
+        return familyNames[Math.floor(Math.random() * familyNames.length)]
+      },
+      getLastName: function () {
+        var givenNames = new Array(
+          "康贵", "康华", "华土", "华福", "康明", "康林", "森", "明", "华明", "飞", "晨涛",
+          "康贵", "子华", "华土", "华福", "康明", "康帝", "阿华", "一博", "华明", "光辉", "华龙"
+        );
+        var givenName = givenNames[(Math.floor(Math.random() * givenNames.length))];
+        return givenName;
+      },
+      dateFormat: function (fmt, date) {
+        let ret;
+        const opt = {
+          "Y+": date.getFullYear().toString(),        // 年
+          "m+": (date.getMonth() + 1).toString(),     // 月
+          "d+": date.getDate().toString(),            // 日
+          "H+": date.getHours().toString(),           // 时
+          "M+": date.getMinutes().toString(),         // 分
+          "S+": date.getSeconds().toString()          // 秒
+          // 有其他格式化字符需求可以继续添加，必须转化成字符串
+        };
+        for (let k in opt) {
+          ret = new RegExp("(" + k + ")").exec(fmt);
+          if (ret) {
+            fmt = fmt.replace(ret[1], (ret[1].length == 1) ? (opt[k]) : (opt[k].padStart(ret[1].length, "0")))
+          };
+        };
+        return fmt;
+      },
+      open: function () {
+        if (this.box_size == 0) {
+          this.box_size = 380
+          this.formData.main_name = this.formData.name;
+        } else {
+          this.box_size = 0;
+          this.formData.main_name = this.formData.name + "(" + this.formData.num + ")"
+        }
+      },
+    },
+    data() {
+      return {
+        debug: true,
+        labelPosition: 'right',
+        box_size: 0,
+        formData: {
+          name: '',
+          main_name: '',
+          st_time: '',
+          et_time: '',
+          teacher: '',
+          dept_1: '',
+          dept_2: '',
+          dept_3: '',
+          parent_name: '',
+          num: '',
+          applyNum:'',
+        }
+      };
+    },
+    beforeCreate: function () {
+    },
+    created: function () {
+    },
+    beforeMount: function () {
+    },
+    mounted: function () {
+      first_name = this.debug ? "杨" : this.getFirstName();
+      my_last_name = this.debug ? "康强" : this.getLastName();
+      parent_last_name = this.debug ? "华寿" : this.getLastName();
+      this.formData.name = first_name + my_last_name;
+      this.formData.parent_name = first_name + parent_last_name;
+      random_num = '120211301131';
+      for (var i = 0; i < 3; i++) {
+        random_num += Math.floor(Math.random() * 10);
+      }
+      this.formData.num =this.debug?"120211301130175": random_num;
+      this.formData.main_name = this.formData.name + "(" + this.formData.num + ")"
+      this.formData.teacher = this.getTeacherName();
+      this.formData.dept_1 = this.getDept1();
+      this.formData.dept_2 = this.getDept2();
+      this.formData.dept_3 = this.formData.dept_2 + (Math.floor(Math.random() * 10)) + "班"
+      sd = new Date();
+      ed = new Date(+sd + 1000 * 60 * 60 * 48);
+      this.formData.applyNum=this.dateFormat("YYYYmmddHHMMSS", sd)+"16210710";
+      this.formData.st_time = this.dateFormat("YYYY-mm-dd", sd) + " 17:00:12";
+      this.formData.et_time = this.dateFormat("YYYY-mm-dd", ed) + " 22:00:12";
+    },
+    beforeUpdate: function () {
+    },
+    updated: function () {
+    },
+    beforeDestroy: function () {
+    },
+    destroyed: function () {
+    }
+  })
+  console.log(app)
+</script>
+
+</html>

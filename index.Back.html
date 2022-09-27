@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name=”viewport” content=”width=device-width, initial-scale=1″/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>捞天下官网</title>
+    <style>
+        body {
+            font: normal 100% Helvetica, Arial, sans-serif;
+        }
+
+        .box {
+            height: 300px;
+            overflow: auto;
+        }
+    </style>
+    <!--<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>-->
+    <script src="Bmob-2.2.2.min.js"></script>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+    <!--&lt;!&ndash; 生产环境版本，优化了尺寸和速度 &ndash;&gt;
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+</head>
+
+<body>
+<div id="app">
+    <h1>捞天下</h1>
+    <h2>捞天下成立时间:{{createDate.toLocaleDateString()}}</h2>
+    <h2>捞天下已经成立:{{toDay}}</h2>
+    <h2>距离捞天下{{ind}}周年庆还剩{{toNow}}</h2>
+    <el-button type="primary">打卡</el-button>
+    <div class="box">
+        <p>
+            捞天下国际组织创始于公元2014年10月5日，地点：吴川市第四中学，创始人：杜捞（杜汉健），肥捞（杨康健），富捞（李万富），捞仔强（杨强忠），捞仔宁（薛佳宁）。
+            同日，捞天下全体大会的召开，标准着捞天下正式成立，规模初具雏形，经过三年的发展，虽然人员没有增加，公元2017年规模逐渐成员，人员职位也分工明确，分别有成立委员会与干事两大部门，委员会成员有杜捞，捞仔强，富捞，捞仔宁，捞仔晋五人，
+            而干事成员有肥捞一人。成员分工明确，捞天下事务也日益步入正轨。
+            捞天下在公元2020年的目标是:全员走上人生巅峰。
+        </p>
+    </div>
+</div>
+<script>
+    Bmob.initialize("57531997b49a4b45", "952788");
+    // 挂载到全局使用
+    Vue.prototype.Bmob = Bmob
+    var app = new Vue({
+        el: '#app',
+        data() {
+            return {
+                ind: 10,
+                createDate: new Date('2014,10,05'),
+                target: null,
+                timer: '',
+                toNow: "",
+                toDay: ""
+            }
+        },
+        created: function () {
+            // `this` 指向 vm 实例
+            this.target = new Date((this.createDate.getFullYear() + this.ind), this.createDate.getMonth(), this.createDate.getDate())
+        },
+        methods: {
+            getToNow: function () {
+                this.toDay = Math.floor((new Date() - this.createDate) / 1000 / 3600 / 24) + "天";
+                var days = (this.target - new Date()) / 1000 / 3600 / 24;
+                var day = Math.floor(days);
+                var hours = (days - day) * 24;
+                var hour = Math.floor(hours);
+                var minutes = (hours - hour) * 60;
+                var minute = Math.floor(minutes);
+                var seconds = (minutes - minute) * 60;
+                var second = Math.floor(seconds);
+                this.toNow = day + '天' + hour + '时' + minute + '分' + second + '秒';
+            }
+        },
+        mounted() {
+            this.timer = setInterval(this.getToNow, 1000)
+        },
+        beforeDestroy() {
+            clearInterval(this.timer)
+        }
+    })
+</script>
+</body>
+
+</html>
