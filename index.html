@@ -142,16 +142,16 @@
                       <div class="hx-detail-item-field">{{formData.teacher}}</div>
                     </div>
                     <div class="hx-detail-item"><span class="hx-detail-item-label">离校类型</span>
-                      <div class="hx-detail-item-field">事假</div>
+                      <div class="hx-detail-item-field">{{formData.leave_type}}</div>
                     </div>
                     <div class="hx-detail-item"><span class="hx-detail-item-label">离校具体原因</span>
-                      <div class="hx-detail-item-field">去医院看病</div>
+                      <div class="hx-detail-item-field">{{formData.reason_for_leave}}</div>
                     </div>
                     <div class="hx-detail-item"><span class="hx-detail-item-label">离校去向（含途径地区）</span>
-                      <div class="hx-detail-item-field">佛山</div>
+                      <div class="hx-detail-item-field">{{formData.go}}</div>
                     </div>
                     <div class="hx-detail-item"><span class="hx-detail-item-label">交通方式</span>
-                      <div class="hx-detail-item-field">自驾（含网约车）</div>
+                      <div class="hx-detail-item-field">{{formData.go_type}}</div>
                     </div>
                     <div class="hx-detail-item"><span class="hx-detail-item-label">目的地是否为疫情风险地区</span>
                       <div class="hx-detail-item-field">否</div>
@@ -162,14 +162,14 @@
                     <div class="hx-detail-item"><span class="hx-detail-item-label">结束时间</span>
                       <div class="hx-detail-item-field">{{formData.et_time}}</div>
                     </div>
-                    <div class="hx-detail-item"><span class="hx-detail-item-label">时长</span>
-                      <div class="hx-detail-item-field">2.21</div>
+                    <div class="hx-detail-item"><span class="hx-detail-item-label">时长(天)</span>
+                      <div class="hx-detail-item-field">{{formData.time}}</div>
                     </div>
-                    <div class="hx-detail-item"><span class="hx-detail-item-label">目的地详细地址</span>
-                      <div class="hx-detail-item-field">医院</div>
+                    <div class="hx-detail-item"><span class="hx-detail-item-label">目的地（请准确定位）</span>
+                      <div class="hx-detail-item-field">{{formData.target1}}</div>
                     </div>
                     <div class="hx-detail-item"><span class="hx-detail-item-label">地区选择</span>
-                      <div class="hx-detail-item-field">广东省佛山市南海区</div>
+                      <div class="hx-detail-item-field">{{formData.target2}}</div>
                     </div>
                     <div class="hx-detail-item"><span class="hx-detail-item-label">请假材料</span>
                       <div class="hx-detail-item-field">
@@ -180,13 +180,13 @@
                       <div class="hx-detail-item-field"></div>
                     </div>
                     <div class="hx-detail-item"><span class="hx-detail-item-label">本人联系电话</span>
-                      <div class="hx-detail-item-field">15384497406</div>
+                      <div class="hx-detail-item-field">{{formData.my_phone}}</div>
                     </div>
                     <div class="hx-detail-item"><span class="hx-detail-item-label">紧急联系人（家长姓名）</span>
                       <div class="hx-detail-item-field">{{formData.parent_name}}</div>
                     </div>
                     <div class="hx-detail-item"><span class="hx-detail-item-label">紧急联系电话（家长电话）</span>
-                      <div class="hx-detail-item-field">13650334835</div>
+                      <div class="hx-detail-item-field">{{formData.parent_phone}}</div>
                     </div>
                   </div>
                 </div>
@@ -194,14 +194,14 @@
                   <div class="hx-title-detail">
                     <div class="hx-title-detail-dot"></div>审批进度
                   </div>
-                  <div class="hx-detail-content">
+                  <div class="hx-detail-content" style="padding-bottom: 0px;">
                     <div class="flownode___1GTd6 node2___1yk73">
-                      <div class="nodestate___Npp7u"><span>通过</span><span class="stateTime___2bJzR">16:00</span></div>
+                      <div class="nodestate___Npp7u"><span>通过</span><!-- <span class="stateTime___2bJzR">{{formData.teacher1.applyDate}}</span> --></div>
                       <div class="nodeleft___2q7Sg"><span class="nodeindex___Cya0J">1</span></div>
                       <div class="noderight___urUWJ">
                         <div class="nodeapprover___1KJaE" style="margin-top: 0px;">
                           <div>
-                            <div>{{formData.teacher}}<span class="workTime___PJH95">16:00</span>
+                            <div>{{formData.teacher1}}<span class="workTime___PJH95">{{formData.teacher1_applyDate}}</span>
                             </div>
                             <div class="approverOpinion___3xcsE"><span style="color: rgb(135, 208, 104);">已同意</span>
                             </div>
@@ -210,7 +210,25 @@
                       </div>
                     </div>
                     <div class="flownode___1GTd6">
-                      <div class="nodeend___sR2u9"></div>
+                    </div>
+                  </div>
+                  <div class="hx-detail-content" style="padding-top: 0px;">
+                    <div class="flownode___1GTd6 node2___1yk73">
+                      <div class="nodestate___Npp7u"><span>通过</span><!-- <span class="stateTime___2bJzR">{{formData.teacher2.applyDate}}</span> --></div>
+                      <div class="nodeleft___2q7Sg"><span class="nodeindex___Cya0J">2</span></div>
+                      <div class="noderight___urUWJ">
+                        <div class="nodeapprover___1KJaE" style="margin-top: 0px;">
+                          <div>
+                            <div>{{formData.teacher2}}<span class="workTime___PJH95">{{formData.teacher2_applyDate}}</span>
+                            </div>
+                            <div class="approverOpinion___3xcsE"><span style="color: rgb(135, 208, 104);">已同意</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flownode___1GTd6">
+                     
                     </div>
                   </div>
                 </div>
@@ -235,8 +253,62 @@
             <el-form-item label="姓名">
               <el-input v-model="formData.name"></el-input>
             </el-form-item>
+
+            <el-form-item label="离校类型">
+              <el-input v-model="formData.leave_type"></el-input>
+            </el-form-item>
+
+            <el-form-item label="离校原因">
+              <el-input v-model="formData.reason_for_leave"></el-input>
+            </el-form-item>
+
+            <el-form-item label="离校去向">
+              <el-input v-model="formData.go"></el-input>
+            </el-form-item>
+
+            <el-form-item label="交通方式">
+              <el-input v-model="formData.go_type"></el-input>
+            </el-form-item>
+            
+            
+            <el-form-item label="目的地（请准确定位）">
+              <el-input v-model="formData.target1"></el-input>
+            </el-form-item>
+            <el-form-item label="地区选择">
+              <el-input v-model="formData.target2"></el-input>
+            </el-form-item>
+
+            <el-form-item label="家长">
+              <el-input v-model="formData.parent_name"></el-input>
+            </el-form-item>
+
+            <el-form-item label="本人联系电话">
+              <el-input v-model="formData.my_phone"></el-input>
+            </el-form-item>
+
+            <el-form-item label="家长联系电话">
+              <el-input v-model="formData.parent_phone"></el-input>
+            </el-form-item>
+
+
+            <el-form-item label="结束时间">
+              <el-input v-model="formData.et_time"></el-input>
+            </el-form-item>
+            <el-form-item label="时长">
+              <el-input v-model="formData.time"></el-input>
+            </el-form-item>
+            
             <el-form-item label="辅导员">
-              <el-input v-model="formData.teacher"></el-input>
+              <el-input v-model="formData.teacher1"></el-input>
+            </el-form-item>
+            <el-form-item label="辅导员审批时间">
+              <el-input v-model="formData.teacher1_applyDate"></el-input>
+            </el-form-item>
+            <el-form-item label="书记">
+              <el-input v-model="formData.teacher2"></el-input>
+            </el-form-item>
+            <el-form-item label="书记审批时间">
+              <el-input v-model="formData.teacher2_applyDate"></el-input>
             </el-form-item>
             <el-form-item label="系">
               <el-input v-model="formData.dept_1"></el-input>
@@ -249,9 +321,6 @@
             </el-form-item>
             <el-form-item label="开始时间">
               <el-input v-model="formData.st_time"></el-input>
-            </el-form-item>
-            <el-form-item label="结束时间">
-              <el-input v-model="formData.et_time"></el-input>
             </el-form-item>
           </el-form>
         </div>
@@ -337,8 +406,15 @@
         formData: {
           name: '',
           main_name: '',
+          leave_type:'事假',
+          reason_for_leave:'去医院看病',
+          go:'佛山',
+          go_type:'自驾（含网约车）',
+          target1:'医院',
+          target2:'广东省佛山市南海区',
           st_time: '',
           et_time: '',
+          time:'2.21',
           teacher: '',
           dept_1: '',
           dept_2: '',
@@ -346,6 +422,12 @@
           parent_name: '',
           num: '',
           applyNum:'',
+          teacher1:'杨焱(21037)',
+          teacher2:'黎明霞(15048)',
+          teacher1_applyDate:'',
+          teacher2_applyDate:'',
+          my_phone:'15384497406',
+          parent_phone:'13650334835',
         }
       };
     },
@@ -366,8 +448,12 @@
         random_num += Math.floor(Math.random() * 10);
       }
       this.formData.num =this.debug?"120211301130175": random_num;
+
       this.formData.main_name = this.formData.name + "(" + this.formData.num + ")"
-      this.formData.teacher = this.getTeacherName();
+      this.formData.teacher1 = this.getTeacherName()+'(21037)';
+      this.formData.teacher1_applyDate = this.dateFormat("YYYY-mm-dd", new Date()) + " 21:50:12";
+      this.formData.teacher2 = '黎明霞(15048)';
+      this.formData.teacher2_applyDate = this.dateFormat("YYYY-mm-dd", new Date()) + " 23:52:11";
       this.formData.dept_1 = this.getDept1();
       this.formData.dept_2 = this.getDept2();
       this.formData.dept_3 = this.formData.dept_2 + (Math.floor(Math.random() * 10)) + "班"
